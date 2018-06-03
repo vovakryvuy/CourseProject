@@ -1,4 +1,4 @@
-package kryvyy.course.pllug.om.courseproject.model;
+package kryvyy.course.pllug.om.courseproject.model_response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by vovak on 02.06.2018.
  */
 
-public class Comment {
+public class Todo {
     @SerializedName("userId")
     @Expose
     private Integer userId;
@@ -17,9 +17,9 @@ public class Comment {
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("body")
+    @SerializedName("completed")
     @Expose
-    private String body;
+    private Boolean completed;
 
     public Integer getUserId() {
         return userId;
@@ -45,11 +45,11 @@ public class Comment {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public Boolean getCompleted() {
+        return completed;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 }

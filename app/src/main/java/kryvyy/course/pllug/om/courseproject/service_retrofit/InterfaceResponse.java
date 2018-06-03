@@ -2,12 +2,12 @@ package kryvyy.course.pllug.om.courseproject.service_retrofit;
 
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Album;
-import kryvyy.course.pllug.om.courseproject.model.Comment;
-import kryvyy.course.pllug.om.courseproject.model.Photo;
-import kryvyy.course.pllug.om.courseproject.model.Post;
-import kryvyy.course.pllug.om.courseproject.model.Todo;
-import kryvyy.course.pllug.om.courseproject.model.profile.Profile;
+import kryvyy.course.pllug.om.courseproject.model_response.Album;
+import kryvyy.course.pllug.om.courseproject.model_response.Comment;
+import kryvyy.course.pllug.om.courseproject.model_response.Photo;
+import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.model_response.Todo;
+import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

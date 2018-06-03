@@ -1,4 +1,4 @@
-package kryvyy.course.pllug.om.courseproject.model.profile;
+package kryvyy.course.pllug.om.courseproject.model_response.profile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

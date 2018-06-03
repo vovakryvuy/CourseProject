@@ -3,7 +3,7 @@ package kryvyy.course.pllug.om.courseproject.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Comment;
+import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.service_retrofit.InterfaceResponse;
 import kryvyy.course.pllug.om.courseproject.service_retrofit.ServiceRetrofit;
 import retrofit2.Call;

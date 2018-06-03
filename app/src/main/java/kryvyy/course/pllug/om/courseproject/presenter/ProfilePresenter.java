@@ -2,10 +2,8 @@ package kryvyy.course.pllug.om.courseproject.presenter;
 
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Post;
-import kryvyy.course.pllug.om.courseproject.model.profile.Profile;
+import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
-import kryvyy.course.pllug.om.courseproject.repositories.PostsRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.ProfileRepository;
 
 /**

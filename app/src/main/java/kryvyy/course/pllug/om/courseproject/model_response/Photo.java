@@ -1,4 +1,4 @@
-package kryvyy.course.pllug.om.courseproject.model;
+package kryvyy.course.pllug.om.courseproject.model_response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by vovak on 02.06.2018.
  */
 
-public class Post {
+public class Photo {
     @SerializedName("userId")
     @Expose
     private Integer userId;
@@ -17,9 +17,6 @@ public class Post {
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("body")
-    @Expose
-    private String body;
 
     public Integer getUserId() {
         return userId;
@@ -43,13 +40,5 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
     }
 }

@@ -3,8 +3,7 @@ package kryvyy.course.pllug.om.courseproject.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Album;
-import kryvyy.course.pllug.om.courseproject.model.Post;
+import kryvyy.course.pllug.om.courseproject.model_response.Post;
 import kryvyy.course.pllug.om.courseproject.service_retrofit.InterfaceResponse;
 import kryvyy.course.pllug.om.courseproject.service_retrofit.ServiceRetrofit;
 import retrofit2.Call;
@@ -46,7 +45,7 @@ public class PostsRepository {
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 mPosts = response.body();
-
+                mInterfacePostsRepository.getPosts(mPosts);
             }
 
             @Override

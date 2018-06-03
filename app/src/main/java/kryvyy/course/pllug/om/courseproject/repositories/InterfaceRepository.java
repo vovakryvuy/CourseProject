@@ -2,11 +2,11 @@ package kryvyy.course.pllug.om.courseproject.repositories;
 
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Album;
-import kryvyy.course.pllug.om.courseproject.model.Comment;
-import kryvyy.course.pllug.om.courseproject.model.Photo;
-import kryvyy.course.pllug.om.courseproject.model.Post;
-import kryvyy.course.pllug.om.courseproject.model.profile.Profile;
+import kryvyy.course.pllug.om.courseproject.model_response.Album;
+import kryvyy.course.pllug.om.courseproject.model_response.Comment;
+import kryvyy.course.pllug.om.courseproject.model_response.Photo;
+import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 
 
 /**

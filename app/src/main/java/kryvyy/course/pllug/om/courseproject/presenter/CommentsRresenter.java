@@ -2,11 +2,7 @@ package kryvyy.course.pllug.om.courseproject.presenter;
 
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.model.Album;
-import kryvyy.course.pllug.om.courseproject.model.Comment;
-import kryvyy.course.pllug.om.courseproject.model.Photo;
-import kryvyy.course.pllug.om.courseproject.model.Post;
-import kryvyy.course.pllug.om.courseproject.model.profile.Profile;
+import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.repositories.CommentsRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
 
