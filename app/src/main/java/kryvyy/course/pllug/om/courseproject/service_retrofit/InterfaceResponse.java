@@ -43,14 +43,17 @@ public interface InterfaceResponse {
     /**
      Get all data
      */
-
     @GET("/albums")
     Call<List<Album>> getAlbums ();
 
     @GET("/users")
     Call<List<Profile>> getProfiles();
 
+    @GET("/posts")
+    Call<List<Post>> getPosts();
 
+    @GET("/comments")
+    Call<List<Comment>> getComments ();
 
     @GET("/photos")
     Call<List<Photo>> getImageFromAlbum(@Query("albumId") Integer albumId);

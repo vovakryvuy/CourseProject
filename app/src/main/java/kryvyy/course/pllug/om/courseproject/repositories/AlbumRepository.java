@@ -15,19 +15,20 @@ import retrofit2.Response;
  */
 
 public class AlbumRepository {
-    private static AlbumRepository ourInstance = new AlbumRepository();
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
+    private InterfaceRepository.Albums mInterfaceAlbumsRepository;
     private Album mAlbum;
     private List<Album> mAlbums;
-    public static AlbumRepository getInstance() {
-        return ourInstance;
+    public  AlbumRepository(InterfaceRepository.Albums interfaceAlbumsRepository) {
+        this.mInterfaceAlbumsRepository = interfaceAlbumsRepository;
     }
 
-    public Album getAlbumById(Integer id){
+    public void getAlbumById(Integer id){
         mInterfaceResponse.getAlbum(id).enqueue(new Callback<Album>() {
             @Override
             public void onResponse(Call<Album> call, Response<Album> response) {
                 mAlbum = response.body();
+                mInterfaceAlbumsRepository.getAlbum(mAlbum);
             }
 
             @Override
@@ -35,15 +36,15 @@ public class AlbumRepository {
 
             }
         });
-        return mAlbum;
     }
 
-    public List<Album> getAllAlbums(){
+    public void  getAllAlbums(){
         mAlbums = new ArrayList<>();
         mInterfaceResponse.getAlbums().enqueue(new Callback<List<Album>>() {
             @Override
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
                 mAlbums = response.body();
+                mInterfaceAlbumsRepository.getAlbums(mAlbums);
             }
 
             @Override
@@ -51,6 +52,5 @@ public class AlbumRepository {
 
             }
         });
-        return mAlbums;
     }
 }

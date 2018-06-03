@@ -16,20 +16,21 @@ import retrofit2.Response;
  */
 
 public class ProfileRepository {
-    private static ProfileRepository ourInstance = new ProfileRepository();
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
+    private InterfaceRepository.Profiles mInterfaceProfilesRepository;
     private Profile mProfile;
     private List<Profile> mProfiles;
 
-    public static ProfileRepository getInstance() {
-        return ourInstance;
+    public ProfileRepository(InterfaceRepository.Profiles interfaceProfilesRepository) {
+       this.mInterfaceProfilesRepository = interfaceProfilesRepository;
     }
 
-    public Profile getProfile(Integer profileId){
+    public void getProfile(Integer profileId){
        mInterfaceResponse.getProfile(profileId).enqueue(new Callback<Profile>() {
            @Override
            public void onResponse(Call<Profile> call, Response<Profile> response) {
                mProfile = response.body();
+               mInterfaceProfilesRepository.getProfile(mProfile);
            }
 
            @Override
@@ -37,15 +38,15 @@ public class ProfileRepository {
 
            }
        });
-        return mProfile;
     }
 
-    public List<Profile> getProfiles(){
+    public void getProfiles(){
         mProfiles = new ArrayList<>();
         mInterfaceResponse.getProfiles().enqueue(new Callback<List<Profile>>() {
             @Override
             public void onResponse(Call<List<Profile>> call, Response<List<Profile>> response) {
                 mProfiles = response.body();
+                mInterfaceProfilesRepository.getProfiles(mProfiles);
             }
 
             @Override
@@ -53,6 +54,5 @@ public class ProfileRepository {
 
             }
         });
-        return mProfiles;
     }
 }

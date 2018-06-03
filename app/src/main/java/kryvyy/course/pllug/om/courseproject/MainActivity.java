@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import kryvyy.course.pllug.om.courseproject.model.Album;
 import kryvyy.course.pllug.om.courseproject.repositories.AlbumRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.ImageRepository;
+import kryvyy.course.pllug.om.courseproject.repositories.PostsRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.ProfileRepository;
 import kryvyy.course.pllug.om.courseproject.service_retrofit.ServiceRetrofit;
 import retrofit2.Call;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void testResponse() {
-        ProfileRepository.getInstance().getProfiles();
+        PostsRepository.getInstance().getPosts();
     }
 
     private void initNavigationView() {
