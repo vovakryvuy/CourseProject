@@ -3,11 +3,13 @@ package kryvyy.course.pllug.om.courseproject.model_response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by vovak on 02.06.2018.
  */
 
-public class Post {
+public class Post implements Serializable {
     @SerializedName("userId")
     @Expose
     private Integer userId;

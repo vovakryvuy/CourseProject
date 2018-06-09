@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardCornerRadius="@dimen/smallGap"
+    android:padding="@dimen/smallGap"
+    android:layout_margin="@dimen/smallGap">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/middleGap"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvItemTitle"
+                android:textSize="@dimen/header_text_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Post"/>
+
+            <TextView
+                android:id="@+id/tvItemBody"
+                android:layout_marginTop="@dimen/middleGap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Text Samsung ST500LM012 500ГБ
+                Стан ДОБрий!.
+                БЕЗ битих секторів."/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>

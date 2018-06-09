@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/smallGap"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitleComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/smallGap"
+        android:paddingTop="@dimen/smallGap"
+        android:paddingRight="@dimen/smallGap"
+        android:textSize="@dimen/text_body"
+        android:textStyle="bold"
+        tools:text="DGDkhhhfkjf"
+        />
+
+    <TextView
+        android:id="@+id/tvEmailComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/smallGap"
+        android:paddingRight="@dimen/smallGap"
+        android:textSize="@dimen/text_body"
+        android:textStyle="italic"
+        tools:text="vovakfadjsdf;lj@gsmfmdm"
+        />
+    <TextView
+        android:id="@+id/tvBodyComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/smallGap"
+        android:textSize="@dimen/text_body"
+        tools:text="gdgfgdfgcgvdvgdgvvdgvdgdfvg dfksjfkfdsffsdvvvsdfd fdsfdf"
+        />
+
+</LinearLayout>

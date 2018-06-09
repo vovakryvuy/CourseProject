@@ -40,6 +40,21 @@ public class CommentsRepository {
        });
     }
 
+    public void getCommentsByIdPost(Integer idPost){
+        mInterfaceResponse.getCommentsByPostId(idPost).enqueue(new Callback<List<Comment>>() {
+            @Override
+            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
+                mComments = response.body();
+                mInterfaceCommentsRepository.getComments(mComments);
+            }
+
+            @Override
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void getComments(){
         mComments = new ArrayList<>();
         mInterfaceResponse.getComments().enqueue(new Callback<List<Comment>>() {

@@ -11,23 +11,26 @@ import java.util.List;
 
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.view.InterfaceView;
 
 /**
  * Created by vovak on 03.06.2018.
  */
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> implements ClickCallback{
     private List<Post> mPostList;
+    private InterfaceView.Posts mInterfacePostsView;
 
-    public PostAdapter(List<Post> mPostList) {
+    public PostAdapter(List<Post> mPostList,InterfaceView.Posts itemClickListener) {
         this.mPostList = mPostList;
+        mInterfacePostsView = itemClickListener;
     }
 
     @NonNull
     @Override
     public PostAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
-        return new ViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post,parent,false);
+        return new ViewHolder(view,this);
     }
 
     @Override
@@ -51,18 +54,32 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         return mPostList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public void clickCallback(int item) {
+        mInterfacePostsView.itemClickListener(mPostList.get(item));
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+        private ClickCallback mClickCallBack;
         public TextView mTvTitle;
         public TextView mTvBody;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView,ClickCallback clickCallBack) {
             super(itemView);
+            mClickCallBack = clickCallBack;
             itemView(itemView);
+            itemView.setOnClickListener(this);
+
         }
 
         private void itemView(View itemView) {
             mTvTitle = itemView.findViewById(R.id.tvItemTitle);
             mTvBody = itemView.findViewById(R.id.tvItemBody);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mClickCallBack.clickCallback(getAdapterPosition());
         }
     }
 }

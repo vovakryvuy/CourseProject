@@ -18,7 +18,7 @@ public class PostsView {
     }
 
     public void displayListPost(List<Post> posts){
-        mPostAdapter = new PostAdapter(posts);
+        mPostAdapter = new PostAdapter(posts,mInterfacePostsView);
         mInterfacePostsView.setAdapterPost(mPostAdapter);
     }
 }

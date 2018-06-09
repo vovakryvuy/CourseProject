@@ -4,6 +4,7 @@ import java.util.List;
 
 import kryvyy.course.pllug.om.courseproject.adapter.PostAdapter;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.PostsRepository;
 import kryvyy.course.pllug.om.courseproject.view.InterfaceView;
@@ -13,7 +14,7 @@ import kryvyy.course.pllug.om.courseproject.view.PostsView;
  * Created by vovak on 03.06.2018.
  */
 
-public class PostsPresenter implements InterfaceRepository.Posts, InterfaceView.Posts,Interface {
+public class PostsPresenter implements InterfaceRepository.Posts, InterfaceView.Posts{
     private PostsRepository mPostsRepository;
     private InterfacePresenter mInterfacePresenter;
     private PostsView mPostsView;
@@ -47,4 +48,10 @@ public class PostsPresenter implements InterfaceRepository.Posts, InterfaceView.
     public void setAdapterPost(PostAdapter adapterPost) {
         mInterfacePresenter.setAdapter(adapterPost);
     }
+
+    @Override
+    public void itemClickListener(Post post) {
+        mInterfacePresenter.clickItemPost(post);
+    }
+
 }

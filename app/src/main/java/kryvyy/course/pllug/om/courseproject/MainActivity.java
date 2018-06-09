@@ -8,9 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
+import java.io.Serializable;
 
-public class MainActivity extends AppCompatActivity {
+import kryvyy.course.pllug.om.courseproject.fragments.DetailByPost;
+import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
+import kryvyy.course.pllug.om.courseproject.model_response.Post;
+
+import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPost.SERIALIZABLE_POST_KEY;
+
+public class MainActivity extends AppCompatActivity implements ContactFragment  {
     private FragmentManager mFragmentManager;
     private DrawerLayout mDrawerLayout;
 
@@ -74,4 +80,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public void openPost(Post post) {
+        DetailByPost detailByPost = new DetailByPost();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(SERIALIZABLE_POST_KEY, post);
+        detailByPost.setArguments(bundle);
+
+        mFragmentManager.beginTransaction().addToBackStack(null)
+                .replace(R.id.mainContentFrame,detailByPost).commit();
+    }
 }
