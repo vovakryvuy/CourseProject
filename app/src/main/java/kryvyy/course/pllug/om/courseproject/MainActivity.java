@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import java.io.Serializable;
-
-import kryvyy.course.pllug.om.courseproject.fragments.DetailByPost;
+import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
+import kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
+import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 
-import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPost.SERIALIZABLE_POST_KEY;
+import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment.SERIALIZABLE_POST_KEY;
 
 public class MainActivity extends AppCompatActivity implements ContactFragment  {
     private FragmentManager mFragmentManager;
@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity implements ContactFragment  
 
                         break;
                     case R.id.nav_albums:
-
+                        AlbumFragment albumFragment = new AlbumFragment();
+                        mFragmentManager.beginTransaction()
+                                .replace(R.id.mainContentFrame, albumFragment).commit();
                         break;
                     case R.id.nav_images:
 
@@ -83,13 +85,13 @@ public class MainActivity extends AppCompatActivity implements ContactFragment  
 
     @Override
     public void openPost(Post post) {
-        DetailByPost detailByPost = new DetailByPost();
+        DetailByPostFragment detailByPostFragment = new DetailByPostFragment();
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(SERIALIZABLE_POST_KEY, post);
-        detailByPost.setArguments(bundle);
+        detailByPostFragment.setArguments(bundle);
 
         mFragmentManager.beginTransaction().addToBackStack(null)
-                .replace(R.id.mainContentFrame,detailByPost).commit();
+                .replace(R.id.mainContentFrame, detailByPostFragment).commit();
     }
 }

@@ -25,7 +25,7 @@ import kryvyy.course.pllug.om.courseproject.presenter.ProfilePresenter;
  * Created by vovak on 09.06.2018.
  */
 
-public class DetailByPost extends Fragment implements InterfacePresenter.Profile, InterfacePresenter.Comments {
+public class DetailByPostFragment extends Fragment implements InterfacePresenter.Profile, InterfacePresenter.Comments {
     public static final String SERIALIZABLE_POST_KEY = "serializable_post_key";
     private ProfilePresenter mProfilePresenter;
     private CommentsRresenter mCommentsRresenter;

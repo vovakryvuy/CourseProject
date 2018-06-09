@@ -8,22 +8,28 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Photo {
-    @SerializedName("userId")
+    @SerializedName("albumId")
     @Expose
-    private Integer userId;
+    private Integer albumId;
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("url")
+    @Expose
+    private String url;
+    @SerializedName("thumbnailUrl")
+    @Expose
+    private String thumbnailUrl;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getAlbumId() {
+        return albumId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
     }
 
     public Integer getId() {
@@ -40,5 +46,21 @@ public class Photo {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }
