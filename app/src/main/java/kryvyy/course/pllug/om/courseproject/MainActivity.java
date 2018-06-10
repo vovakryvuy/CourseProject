@@ -10,11 +10,13 @@ import android.view.MenuItem;
 
 import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment;
+import kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 
 import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment.SERIALIZABLE_POST_KEY;
+import static kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment.ARGUMENT_ID_ALBUM_KEY;
 
 public class MainActivity extends AppCompatActivity implements ContactFragment  {
     private FragmentManager mFragmentManager;
@@ -93,5 +95,18 @@ public class MainActivity extends AppCompatActivity implements ContactFragment  
 
         mFragmentManager.beginTransaction().addToBackStack(null)
                 .replace(R.id.mainContentFrame, detailByPostFragment).commit();
+    }
+
+    @Override
+    public void openAlbum(Album album) {
+        PhotosFragment photosFragment = new PhotosFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(ARGUMENT_ID_ALBUM_KEY,album.getId());
+        photosFragment.setArguments(bundle);
+
+        mFragmentManager.beginTransaction().addToBackStack(null)
+                .replace(R.id.mainContentFrame, photosFragment).commit();
+
     }
 }

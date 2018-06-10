@@ -14,13 +14,13 @@ import retrofit2.Response;
  * Created by vovak on 02.06.2018.
  */
 
-public class ImageRepository {
+public class PhotosRepository {
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
     private InterfaceRepository.Images mInterfaceImagesRepository;
     private Photo mPhoto;
     private List<Photo> mPhotos;
 
-    public ImageRepository(InterfaceRepository.Images interfaceImagesRepository) {
+    public PhotosRepository(InterfaceRepository.Images interfaceImagesRepository) {
        this.mInterfaceImagesRepository = interfaceImagesRepository;
     }
 

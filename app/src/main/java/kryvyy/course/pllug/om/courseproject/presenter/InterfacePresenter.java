@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.model_response.Comment;
+import kryvyy.course.pllug.om.courseproject.model_response.Photo;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 
 /**
@@ -23,5 +24,9 @@ public interface InterfacePresenter {
     public interface Albums{
         void setAdapterAlbum(RecyclerView.Adapter adapter);
         void clickAlbum(Album album);
+    }
+    public  interface Photos{
+        void setAdapterPhotos(RecyclerView.Adapter adapter);
+        void clickPhoto(Photo photo);
     }
 }
