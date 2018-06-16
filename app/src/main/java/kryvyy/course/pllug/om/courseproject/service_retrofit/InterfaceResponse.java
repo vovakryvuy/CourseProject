@@ -58,8 +58,14 @@ public interface InterfaceResponse {
     @GET("/comments")
     Call<List<Comment>> getCommentsByPostId (@Query("postId") Integer postId);
 
+    @GET("/comments")
+    Call<List<Comment>> getCommentsByUserId (@Query("userId") Integer postId);
+
     @GET("/photos")
     Call<List<Photo>> getImageFromAlbum(@Query("albumId") Integer albumId);
+
+    @GET("/photos")
+    Call<List<Photo>> getImageFromAlbumUser(@Query("userId") Integer userId);
 
     /* @GET("/users")
     Call<List<Profile>> getUsers ();

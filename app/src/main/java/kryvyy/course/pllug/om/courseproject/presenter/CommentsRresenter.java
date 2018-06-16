@@ -28,6 +28,10 @@ public class CommentsRresenter implements InterfaceRepository.Comments, Interfac
         mCommentsRepository.getCommentsByIdPost(idPost);
     }
 
+    public void getCommentsByUser(Integer idUser){
+        mCommentsRepository.getCommentsByUser(idUser);
+    }
+
     @Override
     public void getComment(Comment comment) {
     }

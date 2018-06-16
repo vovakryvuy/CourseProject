@@ -1,42 +1,36 @@
 package kryvyy.course.pllug.om.courseproject.fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import kryvyy.course.pllug.om.courseproject.R;
-import kryvyy.course.pllug.om.courseproject.model_response.Album;
-import kryvyy.course.pllug.om.courseproject.model_response.Photo;
-import kryvyy.course.pllug.om.courseproject.presenter.AlbumPresenter;
+import kryvyy.course.pllug.om.courseproject.model_response.Comment;
+import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
-import kryvyy.course.pllug.om.courseproject.presenter.PhotosPresenter;
 
 /**
- * Created by vovak on 10.06.2018.
+ * Created by vovak on 16.06.2018.
  */
 
-public class PhotosFragment extends Fragment implements InterfacePresenter.Photos{
-    public static final String ARGUMENT_ID_ALBUM_KEY = "ARGUMENT_ID_ALBUM_KEY";
+public class CommentsFragment extends Fragment implements InterfacePresenter.Comments{
     public static final String ARGUMENT_ID_USER = "ARGUMENT_ID_USER";
-    private PhotosPresenter mPhotosPresenter;
+    private CommentsRresenter mCommentsRresenter;
     private RecyclerView mRecyclerView;
-    private Integer mIdAlbum;
     private Integer mIdUser;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mIdAlbum = getArguments().getInt(ARGUMENT_ID_ALBUM_KEY);
         mIdUser = getArguments().getInt(ARGUMENT_ID_USER);
-        mPhotosPresenter = new PhotosPresenter(this);
+        mCommentsRresenter = new CommentsRresenter(this);
     }
 
     @Nullable
@@ -49,26 +43,17 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
 
     private void initView(View view) {
         mRecyclerView = view.findViewById(R.id.recycleView);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        getPhotos();
-
-    }
-
-    private void getPhotos() {
-        if (mIdAlbum!=null)
-            mPhotosPresenter.getPhotosByAlbum(mIdAlbum);
-        else if (mIdUser!=null)
-            mPhotosPresenter.getPhotosByUser(mIdUser);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mCommentsRresenter.getCommentsByUser(mIdUser);
     }
 
     @Override
-    public void setAdapterPhotos(RecyclerView.Adapter adapter) {
+    public void setAdapterCommests(RecyclerView.Adapter adapter) {
         mRecyclerView.setAdapter(adapter);
     }
 
     @Override
-    public void clickPhoto(Photo photo) {
+    public void clickComment(Comment comment) {
 
     }
-
 }

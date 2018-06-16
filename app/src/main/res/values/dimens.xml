@@ -9,4 +9,5 @@
     <dimen name="smallGap">8dp</dimen>
     <dimen name="middleGap">16dp</dimen>
     <dimen name="bigGap">30dp</dimen>
+    <dimen name="size_user_photo">150dp</dimen>
 </resources>

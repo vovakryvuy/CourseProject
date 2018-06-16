@@ -28,6 +28,10 @@ public class PhotosPresenter implements InterfaceRepository.Images, InterfaceVie
         mPhotosRepository.getImageFromAlbum(idAlbum);
     }
 
+    public void getPhotosByUser(Integer idUser){
+        mPhotosRepository.getImageFromUserAlbum(idUser);
+    }
+
     @Override
     public void getImage(Photo photo) {
 

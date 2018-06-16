@@ -55,4 +55,19 @@ public class PhotosRepository {
         });
     }
 
+    public void getImageFromUserAlbum(Integer idUser) {
+        mPhotos = new ArrayList<>();
+        mInterfaceResponse.getImageFromAlbumUser(idUser).enqueue(new Callback<List<Photo>>() {
+            @Override
+            public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {
+                mPhotos = response.body();
+                mInterfaceImagesRepository.getImages(mPhotos);
+            }
+
+            @Override
+            public void onFailure(Call<List<Photo>> call, Throwable t) {
+
+            }
+        });
+    }
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.ProfilePresenter;
@@ -25,7 +26,7 @@ import kryvyy.course.pllug.om.courseproject.presenter.ProfilePresenter;
  * Created by vovak on 09.06.2018.
  */
 
-public class DetailByPostFragment extends Fragment implements InterfacePresenter.Profile, InterfacePresenter.Comments {
+public class DetailByPostFragment extends Fragment implements InterfacePresenter.Profiles, InterfacePresenter.Comments {
     public static final String SERIALIZABLE_POST_KEY = "serializable_post_key";
     private ProfilePresenter mProfilePresenter;
     private CommentsRresenter mCommentsRresenter;
@@ -82,11 +83,6 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     }
 
     @Override
-    public void setUserName(String userName) {
-        mTvNameUser.setText(userName);
-    }
-
-    @Override
     public void setAdapterCommests(RecyclerView.Adapter adapter) {
         mRvComments.setAdapter(adapter);
         if (adapter.getItemCount()!=0)
@@ -96,5 +92,10 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     @Override
     public void clickComment(Comment comment) {
 
+    }
+
+    @Override
+    public void setProfile(Profile profile) {
+        mTvNameUser.setText(profile.getUsername());
     }
 }

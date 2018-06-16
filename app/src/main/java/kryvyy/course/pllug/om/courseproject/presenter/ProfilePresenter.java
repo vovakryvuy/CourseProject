@@ -12,9 +12,10 @@ import kryvyy.course.pllug.om.courseproject.repositories.ProfileRepository;
 
 public class ProfilePresenter implements InterfaceRepository.Profiles{
     private ProfileRepository mProfileRepository;
-    private InterfacePresenter.Profile mInterfaceProfilePresenter;
+    private InterfacePresenter.Profiles mInterfaceProfilePresenter;
+    private Profile mProfile;
 
-    public ProfilePresenter(InterfacePresenter.Profile interfacePresenter) {
+    public ProfilePresenter(InterfacePresenter.Profiles interfacePresenter) {
         mInterfaceProfilePresenter = interfacePresenter;
         mProfileRepository = new ProfileRepository(this);
     }
@@ -23,9 +24,11 @@ public class ProfilePresenter implements InterfaceRepository.Profiles{
         mProfileRepository.getProfile(idUser);
     }
 
+
     @Override
     public void getProfile(Profile profile) {
-        mInterfaceProfilePresenter.setUserName(profile.getUsername());
+        mProfile  = profile;
+        mInterfaceProfilePresenter.setProfile(profile);
     }
 
     @Override
