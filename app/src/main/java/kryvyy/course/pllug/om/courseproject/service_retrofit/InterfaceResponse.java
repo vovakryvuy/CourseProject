@@ -40,6 +40,9 @@ public interface InterfaceResponse {
     @GET("/todos/{id}")
     Call<Todo> getTodo (@Path("id") Integer id);
 
+    @GET("/todos")
+    Call<List<Todo>> getTodosByUser (@Query("userId") Integer userId);
+
     /**
      Get all data
      */
@@ -66,20 +69,5 @@ public interface InterfaceResponse {
 
     @GET("/photos")
     Call<List<Photo>> getImageFromAlbumUser(@Query("userId") Integer userId);
-
-    /* @GET("/users")
-    Call<List<Profile>> getUsers ();
-
-    @GET("/posts")
-    Call<List<Post>> getPosts ();*/
-
-   /* @GET("/comments")
-    Call<Comment> getComment (@Path("id") Integer id);
-
-    @GET("/photos/{id}")
-    Call<Photo> getPhoto (@Path("id") Integer id);
-
-    @GET("/todos/{id}")
-    Call<Todo> getTodo (@Path("id") Integer id);*/
 
 }

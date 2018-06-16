@@ -1,5 +1,8 @@
 package kryvyy.course.pllug.om.courseproject.service_retrofit;
 
+import java.io.File;
+
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -10,15 +13,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ServiceRetrofit {
+    private final static String BASE_URL = "http://jsonplaceholder.typicode.com/";
     private static final ServiceRetrofit ourInstance = new ServiceRetrofit();
     private static InterfaceResponse mInterfaceResponse;
     private Retrofit mRetrofit;
     private OkHttpClient.Builder mClient;
-    private final static String BASE_URL = "http://jsonplaceholder.typicode.com/";
 
-    public static ServiceRetrofit getInstance() {
-        return ourInstance;
-    }
+    private int cacheSize = 10 * 1024 * 1024;
+    Cache mCache = new Cache(new File( "/cache"), cacheSize);
 
     private ServiceRetrofit() {
         initHttpLogging();
@@ -30,15 +32,18 @@ public class ServiceRetrofit {
         mInterfaceResponse = mRetrofit.create(InterfaceResponse.class);
     }
 
+    public static ServiceRetrofit getInstance() {
+        return ourInstance;
+    }
+
+    public static InterfaceResponse getInterfaceResponse() {
+        return mInterfaceResponse;
+    }
+
     private void initHttpLogging() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        mClient = new OkHttpClient.Builder();
+        mClient = new OkHttpClient.Builder().cache(mCache);
         mClient.addInterceptor(loggingInterceptor);
-    }
-
-
-    public static InterfaceResponse getInterfaceResponse(){
-        return mInterfaceResponse;
     }
 }

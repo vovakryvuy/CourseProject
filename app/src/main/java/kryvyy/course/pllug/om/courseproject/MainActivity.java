@@ -14,12 +14,15 @@ import kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.ProfileFragment;
+import kryvyy.course.pllug.om.courseproject.fragments.TodosFragment;
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 
-import static kryvyy.course.pllug.om.courseproject.fragments.CommentsFragment.ARGUMENT_ID_USER;
+import static kryvyy.course.pllug.om.courseproject.fragments.CommentsFragment.ARGUMENT_FOR_COMMENTS_ID_USER;
 import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment.SERIALIZABLE_POST_KEY;
-import static kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment.ARGUMENT_ID_ALBUM_KEY;
+import static kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment.ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY;
+import static kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment.ARGUMENT_FOR_PHOTOS_ID_USER;
+import static kryvyy.course.pllug.om.courseproject.fragments.TodosFragment.AGRGUMENT_FOR_TODOS_USER_ID;
 
 public class MainActivity extends AppCompatActivity implements ContactFragment {
     private FragmentManager mFragmentManager;
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                     CommentsFragment commentsFragment = new CommentsFragment();
                     Bundle bundleComments = new Bundle();
                     //todo user id
-                    bundleComments.putInt(ARGUMENT_ID_USER, 1);
+                    bundleComments.putInt(ARGUMENT_FOR_COMMENTS_ID_USER, 1);
                     commentsFragment.setArguments(bundleComments);
                     setFragmentInContainer(commentsFragment);
                     break;
@@ -76,12 +79,17 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                     PhotosFragment photosFragment = new PhotosFragment();
                     Bundle bundlePhotos = new Bundle();
                     //todo user id
-                    bundlePhotos.putInt(ARGUMENT_ID_ALBUM_KEY, 1);
+                    bundlePhotos.putInt(ARGUMENT_FOR_PHOTOS_ID_USER, 1);
                     photosFragment.setArguments(bundlePhotos);
                     setFragmentInContainer(photosFragment);
                     break;
                 case R.id.nav_todos:
-
+                    TodosFragment todosFragment = new TodosFragment();
+                    Bundle bundleTodos = new Bundle();
+                    //todo user id
+                    bundleTodos.putInt(AGRGUMENT_FOR_TODOS_USER_ID, 1);
+                    todosFragment.setArguments(bundleTodos);
+                    setFragmentInContainer(todosFragment);
                     break;
             }
             mDrawerLayout.closeDrawers();
@@ -89,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
         });
     }
 
-    private void setFragmentInContainer(Fragment fragment){
-        if (mFragmentManager!=null){
+    private void setFragmentInContainer(Fragment fragment) {
+        if (mFragmentManager != null) {
             mFragmentManager.beginTransaction().replace(R.id.mainContentFrame, fragment).commit();
         }
     }
@@ -112,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
         PhotosFragment photosFragment = new PhotosFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putInt(ARGUMENT_ID_ALBUM_KEY, album.getId());
+        bundle.putInt(ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY, album.getId());
         photosFragment.setArguments(bundle);
 
         mFragmentManager.beginTransaction().addToBackStack(null)

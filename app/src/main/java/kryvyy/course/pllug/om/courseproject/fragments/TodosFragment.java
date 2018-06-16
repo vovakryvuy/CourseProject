@@ -12,25 +12,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kryvyy.course.pllug.om.courseproject.R;
-import kryvyy.course.pllug.om.courseproject.model_response.Comment;
-import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
+import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
+import kryvyy.course.pllug.om.courseproject.presenter.TodosPresenter;
 
 /**
  * Created by vovak on 16.06.2018.
  */
 
-public class CommentsFragment extends Fragment implements InterfacePresenter.Comments{
-    public static final String ARGUMENT_FOR_COMMENTS_ID_USER = "ARGUMENT_FOR_COMMENTS_ID_USER";
-    private CommentsRresenter mCommentsRresenter;
+public class TodosFragment extends Fragment implements InterfacePresenter.Todos{
+    public static final String AGRGUMENT_FOR_TODOS_USER_ID = "AGRGUMENT_FOR_TODOS_USER_ID";
+    private TodosPresenter mTodosPresenter;
     private RecyclerView mRecyclerView;
     private Integer mIdUser;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mIdUser = getArguments().getInt(ARGUMENT_FOR_COMMENTS_ID_USER);
-        mCommentsRresenter = new CommentsRresenter(this);
+        mIdUser = getArguments().getInt(AGRGUMENT_FOR_TODOS_USER_ID);
+        mTodosPresenter = new TodosPresenter(this);
     }
 
     @Nullable
@@ -38,22 +38,26 @@ public class CommentsFragment extends Fragment implements InterfacePresenter.Com
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fargment_layout, container, false);
         initView(view);
+        getTodos();
         return view;
+    }
+
+    private void getTodos() {
+        mTodosPresenter.getTodosByUser(mIdUser);
     }
 
     private void initView(View view) {
         mRecyclerView = view.findViewById(R.id.recycleView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mCommentsRresenter.getCommentsByUser(mIdUser);
     }
 
     @Override
-    public void setAdapterCommests(RecyclerView.Adapter adapter) {
+    public void setAdapterTodos(RecyclerView.Adapter adapter) {
         mRecyclerView.setAdapter(adapter);
     }
 
     @Override
-    public void clickComment(Comment comment) {
+    public void clickTodos(Todo todos) {
 
     }
 }

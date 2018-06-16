@@ -24,8 +24,8 @@ import kryvyy.course.pllug.om.courseproject.presenter.PhotosPresenter;
  */
 
 public class PhotosFragment extends Fragment implements InterfacePresenter.Photos{
-    public static final String ARGUMENT_ID_ALBUM_KEY = "ARGUMENT_ID_ALBUM_KEY";
-    public static final String ARGUMENT_ID_USER = "ARGUMENT_ID_USER";
+    public static final String ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY = "ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY";
+    public static final String ARGUMENT_FOR_PHOTOS_ID_USER = "ARGUMENT_FOR_PHOTOS_ID_USER";
     private PhotosPresenter mPhotosPresenter;
     private RecyclerView mRecyclerView;
     private Integer mIdAlbum;
@@ -34,8 +34,8 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mIdAlbum = getArguments().getInt(ARGUMENT_ID_ALBUM_KEY);
-        mIdUser = getArguments().getInt(ARGUMENT_ID_USER);
+        mIdAlbum = getArguments().getInt(ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY);
+        mIdUser = getArguments().getInt(ARGUMENT_FOR_PHOTOS_ID_USER);
         mPhotosPresenter = new PhotosPresenter(this);
     }
 
@@ -55,9 +55,9 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
     }
 
     private void getPhotos() {
-        if (mIdAlbum!=null)
+        if (mIdAlbum!=null && mIdAlbum != 0)
             mPhotosPresenter.getPhotosByAlbum(mIdAlbum);
-        else if (mIdUser!=null)
+        else if (mIdUser!=null && mIdUser != 0)
             mPhotosPresenter.getPhotosByUser(mIdUser);
     }
 
