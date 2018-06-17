@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="red">#c60003</color>
+    <color name="white">#ffffff</color>
+    <color name="darkGrey">#3e3e3e</color>
+    <color name="first_gradient_background">#3eba9c</color>
+    <color name="second_gradient_background">#3e94be</color>
 </resources>

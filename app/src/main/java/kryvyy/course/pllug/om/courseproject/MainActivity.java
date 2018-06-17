@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
 
 import kryvyy.course.pllug.om.courseproject.databinding.ActivityMainBinding;
 import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
@@ -40,7 +44,17 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
         mDrawerLayout = findViewById(R.id.drawer_layout);
         initFragmentContainer();
         initNavigationView();
+        initToolbar();
     }
+
+    private void initToolbar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+    }
+
 
     private void initFragmentContainer() {
         if (findViewById(R.id.mainContentFrame) != null) {
@@ -101,6 +115,17 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
         if (mFragmentManager != null) {
             mFragmentManager.beginTransaction().replace(R.id.mainContentFrame, fragment).commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            if (binding.drawerLayout.isDrawerOpen(Gravity.START))
+                binding.drawerLayout.closeDrawers();
+            else
+                binding.drawerLayout.openDrawer(Gravity.START);
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package kryvyy.course.pllug.om.courseproject.sign_in.fragment_sign_in;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -49,6 +50,7 @@ public class SignInFragment extends Fragment implements ContactSignIn.ContactSig
         mBtLogin = view.findViewById(R.id.btLogin);
         mBtSignUp = view.findViewById(R.id.btSignUp);
         mTvForgotPassword = view.findViewById(R.id.tvForgotPassword);
+        mTvForgotPassword.setPaintFlags(mTvForgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
     }
 
     private void initListener() {

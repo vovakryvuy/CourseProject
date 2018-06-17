@@ -20,7 +20,7 @@ public class ServiceRetrofit {
     private OkHttpClient.Builder mClient;
 
     private int cacheSize = 10 * 1024 * 1024;
-    Cache mCache = new Cache(new File( "/cache"), cacheSize);
+    Cache mCache = new Cache(new File("/cache"), cacheSize);
 
     private ServiceRetrofit() {
         initHttpLogging();
