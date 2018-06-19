@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/smallGap"
+    android:layout_marginTop="@dimen/smallGap"
+    android:layout_marginLeft="@dimen/smallGap"
+    android:layout_marginRight="@dimen/smallGap"
+    android:background="@drawable/background_comment"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
@@ -28,10 +31,15 @@
         android:textStyle="italic"
         tools:text="vovakfadjsdf;lj@gsmfmdm"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/darkGrey"/>
     <TextView
         android:id="@+id/tvBodyComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:padding="@dimen/smallGap"
         android:textSize="@dimen/text_body"
         tools:text="gdgfgdfgcgvdvgdgvvdgvdgdfvg dfksjfkfdsffsdvvvsdfd fdsfdf"

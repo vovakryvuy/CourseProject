@@ -14,10 +14,12 @@
 
         <android.support.design.widget.NavigationView
             android:id="@+id/navigationView"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/width_navigation_view"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
+            android:background="@color/white"
+            app:itemTextAppearance="@style/NavigationViewTextStyle"
             app:menu="@menu/menu_drawer_view">
 
         </android.support.design.widget.NavigationView>

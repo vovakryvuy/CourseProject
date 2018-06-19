@@ -22,9 +22,12 @@
     <string name="profile">Profile</string>
     <string name="posts">Posts</string>
     <string name="comments">Comments</string>
+    <string name="my_comments">My comments</string>
     <string name="albums">Albums</string>
     <string name="images">Images</string>
+    <string name="my_images">My images</string>
     <string name="todos">Todos</string>
+    <string name="my_todos">My Todo</string>
     <string name="user_name">User name:</string>
     <string name="phone">Phone:</string>
     <string name="website">Website:</string>

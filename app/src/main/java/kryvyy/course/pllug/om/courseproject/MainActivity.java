@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toolbar;
 
 import kryvyy.course.pllug.om.courseproject.databinding.ActivityMainBinding;
 import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
     private FragmentManager mFragmentManager;
     private DrawerLayout mDrawerLayout;
     private ActivityMainBinding binding;
+    private ActionBar mActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +44,18 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
 
     private void initView() {
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        initToolbar();
         initFragmentContainer();
         initNavigationView();
-        initToolbar();
     }
 
     private void initToolbar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        mActionBar = getSupportActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setDisplayShowHomeEnabled(true);
+        mActionBar.setDisplayUseLogoEnabled(true);
+        mActionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        mActionBar.setBackgroundDrawable(getDrawable(R.drawable.background_gradient));
     }
 
 
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
 
     private void starFragment() {
         setFragmentInContainer(new ProfileFragment());
+        mActionBar.setTitle(R.string.profile);
     }
 
     private void initNavigationView() {
@@ -74,9 +78,11 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
             switch (item.getItemId()) {
                 case R.id.nav_profile:
                     setFragmentInContainer(new ProfileFragment());
+                    mActionBar.setTitle(R.string.profile);
                     break;
                 case R.id.nav_posts:
                     setFragmentInContainer(new PostsFragment());
+                    mActionBar.setTitle(R.string.posts);
                     break;
                 case R.id.nav_comments:
                     CommentsFragment commentsFragment = new CommentsFragment();
@@ -85,9 +91,11 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                     bundleComments.putInt(ARGUMENT_FOR_COMMENTS_ID_USER, 1);
                     commentsFragment.setArguments(bundleComments);
                     setFragmentInContainer(commentsFragment);
+                    mActionBar.setTitle(R.string.my_comments);
                     break;
                 case R.id.nav_albums:
                     setFragmentInContainer(new AlbumFragment());
+                    mActionBar.setTitle(R.string.albums);
                     break;
                 case R.id.nav_images:
                     PhotosFragment photosFragment = new PhotosFragment();
@@ -96,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                     bundlePhotos.putInt(ARGUMENT_FOR_PHOTOS_ID_USER, 1);
                     photosFragment.setArguments(bundlePhotos);
                     setFragmentInContainer(photosFragment);
+                    mActionBar.setTitle(R.string.my_images);
                     break;
                 case R.id.nav_todos:
                     TodosFragment todosFragment = new TodosFragment();
@@ -104,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                     bundleTodos.putInt(AGRGUMENT_FOR_TODOS_USER_ID, 1);
                     todosFragment.setArguments(bundleTodos);
                     setFragmentInContainer(todosFragment);
+                    mActionBar.setTitle(R.string.my_todos);
                     break;
             }
             mDrawerLayout.closeDrawers();
