@@ -31,4 +31,9 @@
     <string name="user_name">User name:</string>
     <string name="phone">Phone:</string>
     <string name="website">Website:</string>
+    <string name="street">Street:</string>
+    <string name="city">City:</string>
+    <string name="company">Company</string>
+    <string name="name">Name:</string>
+    <string name="catch_phrase">Catch phrase:</string>
 </resources>

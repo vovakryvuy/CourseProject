@@ -27,7 +27,7 @@
         android:id="@+id/edPassword"
         android:layout_width="@dimen/width_edit_text"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/smallGap"
+        android:layout_marginBottom="@dimen/bigGap"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="@dimen/smallGap"

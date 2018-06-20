@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/smallGap"
+    android:layout_marginBottom="@dimen/smallGap"
     android:layout_marginLeft="@dimen/smallGap"
     android:layout_marginRight="@dimen/smallGap"
     android:background="@drawable/background_comment"

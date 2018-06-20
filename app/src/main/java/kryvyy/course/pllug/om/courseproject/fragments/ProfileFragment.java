@@ -44,9 +44,7 @@ public class ProfileFragment extends Fragment implements InterfacePresenter.Prof
     }
 
     private void initListener() {
-       /* binding.tvWebsite.setOnClickListener(this);
-        binding.tvPhone.setOnClickListener(this);
-        binding.tvEmail.setOnClickListener(this);*/
+
     }
 
     @Override
@@ -55,5 +53,12 @@ public class ProfileFragment extends Fragment implements InterfacePresenter.Prof
         binding.tvEmail.setText(profile.getEmail());
         binding.tvPhone.setText(profile.getPhone());
         binding.tvWebsite.setText(profile.getWebsite());
+        binding.tvStreet.setText(profile.getAddress().getStreet());
+        binding.tvCity.setText(profile.getAddress().getCity());
+        binding.tvSuite.setText(profile.getAddress().getSuite());
+        binding.tvZipcode.setText(profile.getAddress().getZipcode());
+        binding.tvNameCompany.setText(profile.getCompany().getName());
+        binding.tvCatchPhrase.setText(profile.getCompany().getCatchPhrase());
+        binding.layoutProfile.setVisibility(View.VISIBLE);
     }
 }
