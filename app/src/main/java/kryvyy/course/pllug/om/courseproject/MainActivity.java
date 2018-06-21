@@ -1,5 +1,6 @@
 package kryvyy.course.pllug.om.courseproject;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toolbar;
 
 import kryvyy.course.pllug.om.courseproject.databinding.ActivityMainBinding;
 import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
@@ -22,6 +23,7 @@ import kryvyy.course.pllug.om.courseproject.fragments.ProfileFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.TodosFragment;
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.shared_preferences.PreferencesSignIn;
 
 import static kryvyy.course.pllug.om.courseproject.fragments.CommentsFragment.ARGUMENT_FOR_COMMENTS_ID_USER;
 import static kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment.SERIALIZABLE_POST_KEY;
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
 
     private void initFragmentContainer() {
         if (findViewById(R.id.mainContentFrame) != null) {
-           /* if (savedInstanceState != null) { return;}*/
             mFragmentManager = getSupportFragmentManager();
             starFragment();
         }
@@ -128,14 +129,33 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (menuItem.getItemId() == android.R.id.home) {
-            if (binding.drawerLayout.isDrawerOpen(Gravity.START))
-                binding.drawerLayout.closeDrawers();
-            else
-                binding.drawerLayout.openDrawer(Gravity.START);
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                if (binding.drawerLayout.isDrawerOpen(Gravity.START))
+                    binding.drawerLayout.closeDrawers();
+                else
+                    binding.drawerLayout.openDrawer(Gravity.START);
+                break;
+            case R.id.log_out:
+                logOut();
+                break;
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    private void logOut() {
+        PreferencesSignIn.getInstance(this).setActiveSession(false);
+        Intent intent = new Intent(this, AuthorizationActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     @Override

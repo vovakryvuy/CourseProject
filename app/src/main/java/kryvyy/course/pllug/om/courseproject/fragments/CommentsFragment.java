@@ -1,6 +1,7 @@
 package kryvyy.course.pllug.om.courseproject.fragments;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kryvyy.course.pllug.om.courseproject.R;
+import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
@@ -23,8 +25,8 @@ import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 public class CommentsFragment extends Fragment implements InterfacePresenter.Comments{
     public static final String ARGUMENT_FOR_COMMENTS_ID_USER = "ARGUMENT_FOR_COMMENTS_ID_USER";
     private CommentsRresenter mCommentsRresenter;
-    private RecyclerView mRecyclerView;
     private Integer mIdUser;
+    private FragmentLayoutBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -36,20 +38,21 @@ public class CommentsFragment extends Fragment implements InterfacePresenter.Com
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fargment_layout, container, false);
-        initView(view);
-        return view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_layout, container, false);
+        initView();
+        return binding.getRoot();
     }
 
-    private void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycleView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    private void initView() {
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
         mCommentsRresenter.getCommentsByUser(mIdUser);
     }
 
     @Override
     public void setAdapterCommests(RecyclerView.Adapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+        binding.recycleView.setAdapter(adapter);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.recycleView.setVisibility(View.VISIBLE);
     }
 
     @Override

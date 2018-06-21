@@ -2,11 +2,11 @@ package kryvyy.course.pllug.om.courseproject.fragments;
 
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kryvyy.course.pllug.om.courseproject.R;
-import kryvyy.course.pllug.om.courseproject.model_response.Album;
+import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Photo;
-import kryvyy.course.pllug.om.courseproject.presenter.AlbumPresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.PhotosPresenter;
 
@@ -28,9 +27,9 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
     public static final String ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY = "ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY";
     public static final String ARGUMENT_FOR_PHOTOS_ID_USER = "ARGUMENT_FOR_PHOTOS_ID_USER";
     private PhotosPresenter mPhotosPresenter;
-    private RecyclerView mRecyclerView;
     private Integer mIdAlbum;
     private Integer mIdUser;
+    private FragmentLayoutBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -43,16 +42,14 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fargment_layout, container, false);
-        initView(view);
-        return view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_layout, container, false);
+        initView();
+        return binding.getRoot();
     }
 
-    private void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycleView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    private void initView() {
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
         getPhotos();
-
     }
 
     private void getPhotos() {
@@ -64,7 +61,9 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
 
     @Override
     public void setAdapterPhotos(RecyclerView.Adapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+        binding.recycleView.setAdapter(adapter);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.recycleView.setVisibility(View.VISIBLE);
     }
 
     @Override

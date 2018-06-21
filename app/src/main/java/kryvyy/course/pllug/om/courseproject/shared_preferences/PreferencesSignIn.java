@@ -15,7 +15,8 @@ public class PreferencesSignIn {
     private static final String SHARED_PREFERENCES_SIGN_IN = "shared_preferences_sign_in";
     private static final String KEY_LOGIN = "key_login";
     private static final String KEY_PASSWORD = "key_password";
-    private static  final String KEY_EMAIL = "key_email";
+    private static final String KEY_EMAIL = "key_email";
+    private static  final String KEY_ACTIVE_SESSION = "key_active_session";
 
     public static PreferencesSignIn getInstance(Context context) {
        if (mSharedPreferences == null){
@@ -32,6 +33,11 @@ public class PreferencesSignIn {
         mEditor.apply();
     }
 
+    public void setActiveSession(Boolean activeSession){
+        mEditor.putBoolean(KEY_ACTIVE_SESSION,activeSession);
+        mEditor.apply();
+    }
+
     public void clearLoginPassword(){
         mEditor.clear();
         mEditor.apply();
@@ -44,5 +50,10 @@ public class PreferencesSignIn {
         return mSharedPreferences.getString(KEY_PASSWORD,"");
     }
 
-    public String getKeyEmail() {return mSharedPreferences.getString(KEY_EMAIL,""); }
+    public  String getEmail(){
+        return mSharedPreferences.getString(KEY_EMAIL,"");
+    }
+
+    public boolean getActiveSession() {return mSharedPreferences.getBoolean(KEY_ACTIVE_SESSION,false);
+    }
 }

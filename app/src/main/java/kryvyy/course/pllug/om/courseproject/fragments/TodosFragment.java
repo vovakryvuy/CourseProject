@@ -1,6 +1,7 @@
 package kryvyy.course.pllug.om.courseproject.fragments;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kryvyy.course.pllug.om.courseproject.R;
+import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.TodosPresenter;
@@ -23,8 +25,8 @@ import kryvyy.course.pllug.om.courseproject.presenter.TodosPresenter;
 public class TodosFragment extends Fragment implements InterfacePresenter.Todos{
     public static final String AGRGUMENT_FOR_TODOS_USER_ID = "AGRGUMENT_FOR_TODOS_USER_ID";
     private TodosPresenter mTodosPresenter;
-    private RecyclerView mRecyclerView;
     private Integer mIdUser;
+    private FragmentLayoutBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -36,24 +38,25 @@ public class TodosFragment extends Fragment implements InterfacePresenter.Todos{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fargment_layout, container, false);
-        initView(view);
-        getTodos();
-        return view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_layout, container, false);
+        initView();
+        return binding.getRoot();
     }
 
     private void getTodos() {
         mTodosPresenter.getTodosByUser(mIdUser);
     }
 
-    private void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycleView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    private void initView() {
+        getTodos();
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     @Override
     public void setAdapterTodos(RecyclerView.Adapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+        binding.recycleView.setAdapter(adapter);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.recycleView.setVisibility(View.VISIBLE);
     }
 
     @Override

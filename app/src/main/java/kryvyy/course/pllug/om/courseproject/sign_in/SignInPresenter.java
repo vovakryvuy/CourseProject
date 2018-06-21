@@ -54,6 +54,7 @@ public class SignInPresenter implements ContactSignIn.ContactSignInPresenter {
                     +" " + mContext.getString(R.string.password));
         }else {
             mContactSignInView.action();
+            mPref.setActiveSession(true);
         }
     }
 

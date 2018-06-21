@@ -1,19 +1,24 @@
 package kryvyy.course.pllug.om.courseproject.fragments;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
+import com.squareup.okhttp.internal.framed.FramedConnection;
 
 import kryvyy.course.pllug.om.courseproject.ContactFragment;
 import kryvyy.course.pllug.om.courseproject.R;
+import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.presenter.AlbumPresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
@@ -21,13 +26,13 @@ import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 
 public class AlbumFragment extends Fragment implements InterfacePresenter.Albums {
     private AlbumPresenter mAlbumPresenter;
-    private RecyclerView mRecyclerView;
     private ContactFragment mContactFragment;
+    private FragmentLayoutBinding binding;
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         mAlbumPresenter = new AlbumPresenter(this);
         mContactFragment = (ContactFragment) context;
     }
@@ -35,21 +40,22 @@ public class AlbumFragment extends Fragment implements InterfacePresenter.Albums
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fargment_layout, container, false);
-        initView(view);
-        return view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_layout, container, false);
+        initView();
+        return binding.getRoot();
     }
 
-    private void initView(View view) {
-        mRecyclerView = view.findViewById(R.id.recycleView);
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
+    private void initView() {
+        binding.recycleView.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
         mAlbumPresenter.getAlbums();
     }
 
     @Override
     public void setAdapterAlbum(RecyclerView.Adapter adapter) {
-        mRecyclerView.setAdapter(adapter);
+        binding.recycleView.setAdapter(adapter);
+        binding.progressBar.setVisibility(View.GONE);
+        binding.recycleView.setVisibility(View.VISIBLE);
     }
 
     @Override

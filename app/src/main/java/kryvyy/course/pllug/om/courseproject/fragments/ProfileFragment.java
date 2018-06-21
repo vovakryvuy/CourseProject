@@ -59,6 +59,7 @@ public class ProfileFragment extends Fragment implements InterfacePresenter.Prof
         binding.tvZipcode.setText(profile.getAddress().getZipcode());
         binding.tvNameCompany.setText(profile.getCompany().getName());
         binding.tvCatchPhrase.setText(profile.getCompany().getCatchPhrase());
+        binding.progressBar.setVisibility(View.GONE);
         binding.layoutProfile.setVisibility(View.VISIBLE);
     }
 }

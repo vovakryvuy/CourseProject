@@ -2,6 +2,7 @@ package kryvyy.course.pllug.om.courseproject.fragments;
 
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import kryvyy.course.pllug.om.courseproject.R;
+import kryvyy.course.pllug.om.courseproject.databinding.FragmentDetailPostLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
@@ -30,10 +32,8 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     public static final String SERIALIZABLE_POST_KEY = "serializable_post_key";
     private ProfilePresenter mProfilePresenter;
     private CommentsRresenter mCommentsRresenter;
-    private TextView mTvNameUser,tvTitlePost,tvBodyPost;
-    private LinearLayout mLayoutComments;
-    private RecyclerView mRvComments;
     private Post mPost;
+    private FragmentDetailPostLayoutBinding binding;
 
     @Override
     public void onAttach(Context context) {
@@ -46,10 +46,10 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_post_layout, container, false);
-        initView(view);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail_post_layout, container, false);
+        initView();
         setDate();
-        return view;
+        return binding.getRoot();
     }
 
     private void setDate() {
@@ -69,24 +69,21 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     }
 
     private void setDatePost() {
-        tvTitlePost.setText(mPost.getTitle());
-        tvBodyPost.setText(mPost.getBody());
+        binding.tvTitlePost.setText(mPost.getTitle());
+        binding.tvBodyPost.setText(mPost.getBody());
     }
 
-    private void initView(View view) {
-        mTvNameUser  = view.findViewById(R.id.tvNameUser);
-        tvTitlePost = view.findViewById(R.id.tvTitlePost);
-        tvBodyPost = view.findViewById(R.id.tvBodyPost);
-        mLayoutComments = view.findViewById(R.id.layoutComments);
-        mRvComments = view.findViewById(R.id.rvComments);
-        mRvComments.setLayoutManager(new LinearLayoutManager(getContext()));
+    private void initView() {
+        binding.rvComments.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     @Override
     public void setAdapterCommests(RecyclerView.Adapter adapter) {
-        mRvComments.setAdapter(adapter);
+        binding.rvComments.setAdapter(adapter);
         if (adapter.getItemCount()!=0)
-        mLayoutComments.setVisibility(View.VISIBLE);
+            binding.progressBar.setVisibility(View.GONE);
+        binding.layoutComments.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -96,6 +93,6 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
 
     @Override
     public void setProfile(Profile profile) {
-        mTvNameUser.setText(profile.getUsername());
+        binding.tvNameUser.setText(profile.getUsername());
     }
 }

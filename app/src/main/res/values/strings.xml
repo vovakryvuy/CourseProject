@@ -36,4 +36,5 @@
     <string name="company">Company</string>
     <string name="name">Name:</string>
     <string name="catch_phrase">Catch phrase:</string>
+    <string name="logout">Logout</string>
 </resources>
