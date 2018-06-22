@@ -3,6 +3,7 @@ package kryvyy.course.pllug.om.courseproject.sign_in.fragment_sign_in;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,38 +15,33 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import kryvyy.course.pllug.om.courseproject.R;
-import kryvyy.course.pllug.om.courseproject.sign_in.SignInPresenter;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactSignIn;
 
-/**
- * Created by vovak on 26.05.2018.
- */
-
-public class SignInFragment extends Fragment implements ContactSignIn.ContactSignInView,View.OnClickListener{
+public class SignInFragment extends Fragment implements ContactSignIn.ContactSignInView, View.OnClickListener {
     private ContactSignIn.ContactSignInFragment mContactSignInFragment;
     private ContactSignIn.ContactSignInPresenter mContactSignInPresenter;
-    private EditText mEtLogin,mEtPassword;
-    private Button mBtLogin,mBtSignUp;
+    private EditText mEtLogin, mEtPassword;
+    private Button mBtLogin, mBtSignUp;
     private TextView mTvForgotPassword;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mContactSignInFragment = (ContactSignIn.ContactSignInFragment) context;
-        mContactSignInPresenter = new SignInPresenter(this,context);
+        mContactSignInPresenter = new SignInPresenter(this, context);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View  view  = inflater.inflate(R.layout.fragment_sign_in,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
         initView(view);
         initListener();
         return view;
     }
 
     private void initView(View view) {
-        mEtLogin  = view.findViewById(R.id.edLogin);
+        mEtLogin = view.findViewById(R.id.edLogin);
         mEtPassword = view.findViewById(R.id.edPassword);
         mBtLogin = view.findViewById(R.id.btLogin);
         mBtSignUp = view.findViewById(R.id.btSignUp);
@@ -61,7 +57,7 @@ public class SignInFragment extends Fragment implements ContactSignIn.ContactSig
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btSignUp:
                 mContactSignInFragment.openSignUpFragment();
                 break;
@@ -78,7 +74,7 @@ public class SignInFragment extends Fragment implements ContactSignIn.ContactSig
 
     @Override
     public void showErrorMassage(String massage) {
-        Toast.makeText(getContext(),massage,Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), massage, Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -19,11 +19,7 @@ import kryvyy.course.pllug.om.courseproject.model_response.Photo;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.PhotosPresenter;
 
-/**
- * Created by vovak on 10.06.2018.
- */
-
-public class PhotosFragment extends Fragment implements InterfacePresenter.Photos{
+public class PhotosFragment extends Fragment implements InterfacePresenter.Photos {
     public static final String ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY = "ARGUMENT_FOR_PHOTOS_ID_ALBUM_KEY";
     public static final String ARGUMENT_FOR_PHOTOS_ID_USER = "ARGUMENT_FOR_PHOTOS_ID_USER";
     private PhotosPresenter mPhotosPresenter;
@@ -53,9 +49,9 @@ public class PhotosFragment extends Fragment implements InterfacePresenter.Photo
     }
 
     private void getPhotos() {
-        if (mIdAlbum!=null && mIdAlbum != 0)
+        if (mIdAlbum != null && mIdAlbum != 0)
             mPhotosPresenter.getPhotosByAlbum(mIdAlbum);
-        else if (mIdUser!=null && mIdUser != 0)
+        else if (mIdUser != null && mIdUser != 0)
             mPhotosPresenter.getPhotosByUser(mIdUser);
     }
 

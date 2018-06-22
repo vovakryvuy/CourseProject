@@ -7,10 +7,6 @@ import kryvyy.course.pllug.om.courseproject.adapter.TodoAdapter;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 
-/**
- * Created by vovak on 16.06.2018.
- */
-
 public class TodosView {
     private InterfaceView.Todos mInterfaceTodosView;
     private TodoAdapter mTodoAdapter;

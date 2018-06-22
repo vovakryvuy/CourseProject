@@ -10,20 +10,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by vovak on 02.06.2018.
- */
-
 public class AlbumRepository {
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
     private InterfaceRepository.Albums mInterfaceAlbumsRepository;
     private Album mAlbum;
     private List<Album> mAlbums;
-    public  AlbumRepository(InterfaceRepository.Albums interfaceAlbumsRepository) {
+
+    public AlbumRepository(InterfaceRepository.Albums interfaceAlbumsRepository) {
         this.mInterfaceAlbumsRepository = interfaceAlbumsRepository;
     }
 
-    public void getAlbumById(Integer id){
+    public void getAlbumById(Integer id) {
         mInterfaceResponse.getAlbum(id).enqueue(new Callback<Album>() {
             @Override
             public void onResponse(Call<Album> call, Response<Album> response) {
@@ -38,7 +35,7 @@ public class AlbumRepository {
         });
     }
 
-    public void  getAllAlbums(){
+    public void getAllAlbums() {
         mAlbums = new ArrayList<>();
         mInterfaceResponse.getAlbums().enqueue(new Callback<List<Album>>() {
             @Override

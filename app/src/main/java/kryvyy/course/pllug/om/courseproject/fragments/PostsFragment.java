@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import kryvyy.course.pllug.om.courseproject.ContactFragment;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;

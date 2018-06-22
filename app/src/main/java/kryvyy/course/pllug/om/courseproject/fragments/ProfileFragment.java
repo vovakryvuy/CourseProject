@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.databinding.FragmentProfileBinding;
@@ -17,13 +16,9 @@ import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.ProfilePresenter;
 
-/**
- * Created by vovak on 11.06.2018.
- */
-
-public class ProfileFragment extends Fragment implements InterfacePresenter.Profiles{
-    private ProfilePresenter mProfilePresenter;
+public class ProfileFragment extends Fragment implements InterfacePresenter.Profiles {
     FragmentProfileBinding binding;
+    private ProfilePresenter mProfilePresenter;
 
     @Override
     public void onAttach(Context context) {
@@ -37,14 +32,9 @@ public class ProfileFragment extends Fragment implements InterfacePresenter.Prof
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
         View view = binding.getRoot();
-        initListener();
-        //todo id user
+        // id user
         mProfilePresenter.getProfileById(1);
         return view;
-    }
-
-    private void initListener() {
-
     }
 
     @Override

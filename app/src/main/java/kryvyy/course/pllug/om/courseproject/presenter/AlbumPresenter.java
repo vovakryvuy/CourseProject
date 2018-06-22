@@ -9,11 +9,7 @@ import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
 import kryvyy.course.pllug.om.courseproject.view.AlbumsView;
 import kryvyy.course.pllug.om.courseproject.view.InterfaceView;
 
-/**
- * Created by vovak on 03.06.2018.
- */
-
-public class AlbumPresenter implements InterfaceRepository.Albums,InterfaceView.Albums{
+public class AlbumPresenter implements InterfaceRepository.Albums, InterfaceView.Albums {
     private AlbumRepository mAlbumRepository;
     private InterfacePresenter.Albums mInterfaceAlbumsPresenter;
     private AlbumsView mAlbumsView;
@@ -24,7 +20,7 @@ public class AlbumPresenter implements InterfaceRepository.Albums,InterfaceView.
         mAlbumsView = new AlbumsView(this);
     }
 
-    public void getAlbums(){
+    public void getAlbums() {
         mAlbumRepository.getAllAlbums();
     }
 

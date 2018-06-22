@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    app:cardCornerRadius="@dimen/smallGap"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/smallGap"
     app:cardBackgroundColor="@color/white"
-    app:cardElevation="@dimen/smallGap"
-    android:layout_margin="@dimen/smallGap">
+    app:cardCornerRadius="@dimen/smallGap"
+    app:cardElevation="@dimen/smallGap">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tvItemTitle"
-                android:textSize="@dimen/header_text_big"
-                android:padding="@dimen/smallGap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="Post"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/darkGrey"/>
+            android:gravity="center"
+            android:padding="@dimen/smallGap"
+            android:textSize="@dimen/header_text_big"
+            tools:text="Post" />
 
-            <TextView
-                android:id="@+id/tvItemBody"
-                android:padding="@dimen/middleGap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Text Samsung ST500LM012 500ГБ
-                Стан ДОБрий!.
-                БЕЗ битих секторів."/>
-        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/darkGrey" />
 
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/tvItemBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/middleGap"
+            tools:text="djfl;skfkgs;kg
+            skdkskgksg;lfkslgk;
+            lkgd;lkg;lskgdsk;ldsk k;kgdskdskg" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

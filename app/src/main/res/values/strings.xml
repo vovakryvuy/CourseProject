@@ -4,7 +4,6 @@
     <string name="password">Password</string>
 
 
-
     <string name="toastMassage">Please enter %1$s</string>
     <string name="toastMassageErCredential">Please enter</string>
     <string name="toastMassageErEmail">Please enter email</string>
@@ -37,4 +36,7 @@
     <string name="name">Name:</string>
     <string name="catch_phrase">Catch phrase:</string>
     <string name="logout">Logout</string>
+    <string name="zipcode">Zipcode:</string>
+    <string name="suite">Suite:</string>
+    <string name="address">Address</string>
 </resources>

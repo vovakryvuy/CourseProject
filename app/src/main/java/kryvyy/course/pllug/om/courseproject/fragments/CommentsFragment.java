@@ -18,11 +18,7 @@ import kryvyy.course.pllug.om.courseproject.model_response.Comment;
 import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 
-/**
- * Created by vovak on 16.06.2018.
- */
-
-public class CommentsFragment extends Fragment implements InterfacePresenter.Comments{
+public class CommentsFragment extends Fragment implements InterfacePresenter.Comments {
     public static final String ARGUMENT_FOR_COMMENTS_ID_USER = "ARGUMENT_FOR_COMMENTS_ID_USER";
     private CommentsRresenter mCommentsRresenter;
     private Integer mIdUser;

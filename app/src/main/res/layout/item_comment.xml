@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/smallGap"
     android:layout_marginLeft="@dimen/smallGap"
     android:layout_marginRight="@dimen/smallGap"
     android:background="@drawable/background_comment"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <TextView
@@ -14,12 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/smallGap"
-        android:paddingTop="@dimen/smallGap"
         android:paddingRight="@dimen/smallGap"
+        android:paddingTop="@dimen/smallGap"
         android:textSize="@dimen/text_body"
         android:textStyle="bold"
-        tools:text="DGDkhhhfkjf"
-        />
+        tools:text="DGDkhhhfkjf" />
 
     <TextView
         android:id="@+id/tvEmailComment"
@@ -29,12 +28,13 @@
         android:paddingRight="@dimen/smallGap"
         android:textSize="@dimen/text_body"
         android:textStyle="italic"
-        tools:text="vovakfadjsdf;lj@gsmfmdm"
-        />
+        tools:text="vovakfadjsdf;lj@gsmfmdm" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/darkGrey"/>
+        android:background="@color/darkGrey" />
+
     <TextView
         android:id="@+id/tvBodyComment"
         android:layout_width="match_parent"
@@ -42,7 +42,6 @@
         android:background="@color/white"
         android:padding="@dimen/smallGap"
         android:textSize="@dimen/text_body"
-        tools:text="gdgfgdfgcgvdvgdgvvdgvdgdfvg dfksjfkfdsffsdvvvsdfd fdsfdf"
-        />
+        tools:text="gdgfgdfgcgvdvgdgvvdgvdgdfvg dfksjfkfdsffsdvvvsdfd fdsfdf" />
 
 </LinearLayout>

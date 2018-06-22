@@ -21,25 +21,25 @@ public class ProfileRepository {
     private List<Profile> mProfiles;
 
     public ProfileRepository(InterfaceRepository.Profiles interfaceProfilesRepository) {
-       this.mInterfaceProfilesRepository = interfaceProfilesRepository;
+        this.mInterfaceProfilesRepository = interfaceProfilesRepository;
     }
 
-    public void getProfile(Integer profileId){
-       mInterfaceResponse.getProfile(profileId).enqueue(new Callback<Profile>() {
-           @Override
-           public void onResponse(Call<Profile> call, Response<Profile> response) {
-               mProfile = response.body();
-               mInterfaceProfilesRepository.getProfile(mProfile);
-           }
+    public void getProfile(Integer profileId) {
+        mInterfaceResponse.getProfile(profileId).enqueue(new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                mProfile = response.body();
+                mInterfaceProfilesRepository.getProfile(mProfile);
+            }
 
-           @Override
-           public void onFailure(Call<Profile> call, Throwable t) {
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
 
-           }
-       });
+            }
+        });
     }
 
-    public void getProfiles(){
+    public void getProfiles() {
         mProfiles = new ArrayList<>();
         mInterfaceResponse.getProfiles().enqueue(new Callback<List<Profile>>() {
             @Override

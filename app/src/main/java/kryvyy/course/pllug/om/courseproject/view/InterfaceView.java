@@ -11,29 +11,34 @@ import kryvyy.course.pllug.om.courseproject.model_response.Photo;
 import kryvyy.course.pllug.om.courseproject.model_response.Post;
 import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 
-/**
- * Created by vovak on 03.06.2018.
- */
-
 public interface InterfaceView {
-    interface Posts{
+    interface Posts {
         void setAdapterPost(PostAdapter adapterPost);
+
         void itemClickListener(Post post);
     }
-    interface Comments{
+
+    interface Comments {
         void setAdapterComments(CommentsAdapter adapterComments);
+
         void itemClickListner(Comment comment);
     }
-    interface Albums{
+
+    interface Albums {
         void setAdapterAlbums(AlbumAdapter adpterAlbums);
+
         void itemClickListener(Album album);
     }
-    interface Photos{
+
+    interface Photos {
         void setAdapterPhotos(PhotosAdapter adapterPhotos);
+
         void itemClickListener(Photo photo);
     }
-    interface Todos{
+
+    interface Todos {
         void setAdapterTodos(TodoAdapter adapterTodos);
+
         void itemClickListener(Todo todo);
     }
 

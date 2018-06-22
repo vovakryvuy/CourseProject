@@ -3,6 +3,7 @@ package kryvyy.course.pllug.om.courseproject.sign_in.fragment_sign_in;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,12 +17,8 @@ import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactForgotPassword;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactSignIn;
 
-/**
- * Created by vovak on 26.05.2018.
- */
-
-public class ForgotPasswordFragment extends Fragment implements ContactForgotPassword.ContactForgotView ,
-        View.OnClickListener{
+public class ForgotPasswordFragment extends Fragment implements ContactForgotPassword.ContactForgotView,
+        View.OnClickListener {
     private ContactSignIn.ContactSignInFragment mContactSignInFragment;
     private ContactForgotPassword.ContactForgotPresenter mContactForgotPresenter;
     private Context mContext;
@@ -33,13 +30,13 @@ public class ForgotPasswordFragment extends Fragment implements ContactForgotPas
         super.onAttach(context);
         mContext = context;
         mContactSignInFragment = (ContactSignIn.ContactSignInFragment) context;
-        mContactForgotPresenter = new ForgotPasswordPresenter(this,context);
+        mContactForgotPresenter = new ForgotPasswordPresenter(this, context);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_forgot_password,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_forgot_password, container, false);
         initView(view);
         initListener();
         return view;
@@ -56,7 +53,7 @@ public class ForgotPasswordFragment extends Fragment implements ContactForgotPas
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btSendNewPassword:
                 mContactForgotPresenter.vereficationEmail(mEtEmail.getText().toString());
                 break;
@@ -65,7 +62,7 @@ public class ForgotPasswordFragment extends Fragment implements ContactForgotPas
 
     @Override
     public void showErrorMassage(String massage) {
-        Toast.makeText(mContext,massage,Toast.LENGTH_LONG).show();
+        Toast.makeText(mContext, massage, Toast.LENGTH_LONG).show();
     }
 
     @Override

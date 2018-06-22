@@ -18,11 +18,7 @@ import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.TodosPresenter;
 
-/**
- * Created by vovak on 16.06.2018.
- */
-
-public class TodosFragment extends Fragment implements InterfacePresenter.Todos{
+public class TodosFragment extends Fragment implements InterfacePresenter.Todos {
     public static final String AGRGUMENT_FOR_TODOS_USER_ID = "AGRGUMENT_FOR_TODOS_USER_ID";
     private TodosPresenter mTodosPresenter;
     private Integer mIdUser;

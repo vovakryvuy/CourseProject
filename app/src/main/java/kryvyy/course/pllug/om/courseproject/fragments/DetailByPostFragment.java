@@ -12,8 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.databinding.FragmentDetailPostLayoutBinding;
@@ -23,10 +21,6 @@ import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 import kryvyy.course.pllug.om.courseproject.presenter.CommentsRresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.ProfilePresenter;
-
-/**
- * Created by vovak on 09.06.2018.
- */
 
 public class DetailByPostFragment extends Fragment implements InterfacePresenter.Profiles, InterfacePresenter.Comments {
     public static final String SERIALIZABLE_POST_KEY = "serializable_post_key";
@@ -53,7 +47,7 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     }
 
     private void setDate() {
-        if (mPost!=null){
+        if (mPost != null) {
             setDatePost();
             getUserInformation(mPost.getUserId());
             getComments(mPost.getId());
@@ -80,10 +74,9 @@ public class DetailByPostFragment extends Fragment implements InterfacePresenter
     @Override
     public void setAdapterCommests(RecyclerView.Adapter adapter) {
         binding.rvComments.setAdapter(adapter);
-        if (adapter.getItemCount()!=0)
+        if (adapter.getItemCount() != 0)
             binding.progressBar.setVisibility(View.GONE);
         binding.layoutComments.setVisibility(View.VISIBLE);
-
     }
 
     @Override

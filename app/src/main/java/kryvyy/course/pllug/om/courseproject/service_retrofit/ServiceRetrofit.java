@@ -19,9 +19,6 @@ public class ServiceRetrofit {
     private Retrofit mRetrofit;
     private OkHttpClient.Builder mClient;
 
-    private int cacheSize = 10 * 1024 * 1024;
-    Cache mCache = new Cache(new File("/cache"), cacheSize);
-
     private ServiceRetrofit() {
         initHttpLogging();
         mRetrofit = new Retrofit.Builder()
@@ -43,7 +40,7 @@ public class ServiceRetrofit {
     private void initHttpLogging() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        mClient = new OkHttpClient.Builder().cache(mCache);
+        mClient = new OkHttpClient.Builder();
         mClient.addInterceptor(loggingInterceptor);
     }
 }

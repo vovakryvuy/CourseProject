@@ -13,15 +13,10 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-/**
- * Created by vovak on 02.06.2018.
- */
-
 public interface InterfaceResponse {
     /**
     Get data by id
      */
-
     @GET("/users/{id}")
     Call<Profile> getProfile (@Path("id") Integer id);
 

@@ -10,10 +10,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by vovak on 02.06.2018.
- */
-
 public class PhotosRepository {
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
     private InterfaceRepository.Images mInterfaceImagesRepository;
@@ -21,10 +17,10 @@ public class PhotosRepository {
     private List<Photo> mPhotos;
 
     public PhotosRepository(InterfaceRepository.Images interfaceImagesRepository) {
-       this.mInterfaceImagesRepository = interfaceImagesRepository;
+        this.mInterfaceImagesRepository = interfaceImagesRepository;
     }
 
-    public void getImage(Integer imageId){
+    public void getImage(Integer imageId) {
         mInterfaceResponse.getImage(imageId).enqueue(new Callback<Photo>() {
             @Override
             public void onResponse(Call<Photo> call, Response<Photo> response) {
@@ -39,7 +35,7 @@ public class PhotosRepository {
         });
     }
 
-    public void getImageFromAlbum(Integer albumId){
+    public void getImageFromAlbum(Integer albumId) {
         mPhotos = new ArrayList<>();
         mInterfaceResponse.getImageFromAlbum(albumId).enqueue(new Callback<List<Photo>>() {
             @Override

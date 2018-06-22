@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import kryvyy.course.pllug.om.courseproject.ImageLoader;
+import kryvyy.course.pllug.om.courseproject.view.ImageLoader;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.model_response.Photo;
 import kryvyy.course.pllug.om.courseproject.view.InterfaceView;

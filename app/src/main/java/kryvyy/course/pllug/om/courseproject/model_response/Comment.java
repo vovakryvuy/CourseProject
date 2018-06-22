@@ -3,10 +3,6 @@ package kryvyy.course.pllug.om.courseproject.model_response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by vovak on 02.06.2018.
- */
-
 public class Comment {
     @SerializedName("postId")
     @Expose

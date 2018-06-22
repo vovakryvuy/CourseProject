@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import kryvyy.course.pllug.om.courseproject.databinding.ActivityMainBinding;
 import kryvyy.course.pllug.om.courseproject.fragments.AlbumFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.CommentsFragment;
+import kryvyy.course.pllug.om.courseproject.fragments.ContactFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.DetailByPostFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PhotosFragment;
 import kryvyy.course.pllug.om.courseproject.fragments.PostsFragment;
@@ -60,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
         mActionBar.setBackgroundDrawable(getDrawable(R.drawable.background_gradient));
     }
 
-
     private void initFragmentContainer() {
         if (findViewById(R.id.mainContentFrame) != null) {
             mFragmentManager = getSupportFragmentManager();
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                 case R.id.nav_comments:
                     CommentsFragment commentsFragment = new CommentsFragment();
                     Bundle bundleComments = new Bundle();
-                    //todo user id
+                    // user id
                     bundleComments.putInt(ARGUMENT_FOR_COMMENTS_ID_USER, 1);
                     commentsFragment.setArguments(bundleComments);
                     setFragmentInContainer(commentsFragment);
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                 case R.id.nav_images:
                     PhotosFragment photosFragment = new PhotosFragment();
                     Bundle bundlePhotos = new Bundle();
-                    //todo user id
+                    // user id
                     bundlePhotos.putInt(ARGUMENT_FOR_PHOTOS_ID_USER, 1);
                     photosFragment.setArguments(bundlePhotos);
                     setFragmentInContainer(photosFragment);
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
                 case R.id.nav_todos:
                     TodosFragment todosFragment = new TodosFragment();
                     Bundle bundleTodos = new Bundle();
-                    //todo user id
+                    // user id
                     bundleTodos.putInt(AGRGUMENT_FOR_TODOS_USER_ID, 1);
                     todosFragment.setArguments(bundleTodos);
                     setFragmentInContainer(todosFragment);
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
     private void logOut() {
         PreferencesSignIn.getInstance(this).setActiveSession(false);
         Intent intent = new Intent(this, AuthorizationActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -180,6 +180,5 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
 
         mFragmentManager.beginTransaction().addToBackStack(null)
                 .replace(R.id.mainContentFrame, photosFragment).commit();
-
     }
 }

@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:indeterminate="true"
-            android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/second_gradient_background"/>
+            android:indeterminateTint="@color/second_gradient_background"
+            android:indeterminateTintMode="src_atop" />
 
         <RelativeLayout
             android:id="@+id/layoutProfile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
             android:orientation="vertical"
             android:padding="@dimen/middleGap"
+            android:visibility="gone"
             tools:layout_editor_absoluteY="81dp">
 
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:textStyle="bold"
+                android:layout_alignParentTop="true"
                 android:textSize="@dimen/header_text_big"
+                android:textStyle="bold"
                 tools:text="Volodymyr" />
 
             <LinearLayout
@@ -43,72 +43,74 @@
 
                 <TextView
                     android:id="@+id/tvEmail"
-                    android:drawableStart="@drawable/ic_email"
-                    android:drawablePadding="@dimen/smallGap"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:textSize="@dimen/text_body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:drawablePadding="@dimen/smallGap"
+                    android:drawableStart="@drawable/ic_email"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold"
                     tools:text="@string/email" />
 
                 <TextView
                     android:id="@+id/tvPhone"
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:drawableStart="@drawable/ic_phone"
-                    android:drawablePadding="@dimen/smallGap"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_body"
-                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:drawablePadding="@dimen/smallGap"
+                    android:drawableStart="@drawable/ic_phone"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold"
                     tools:text="@string/phone" />
 
                 <TextView
                     android:id="@+id/tvWebsite"
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:drawableStart="@drawable/ic_web"
-                    android:drawablePadding="@dimen/smallGap"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_body"
-                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:drawablePadding="@dimen/smallGap"
+                    android:drawableStart="@drawable/ic_web"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold"
                     tools:text="@string/website" />
 
                 <View
                     android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="@dimen/smallGap"
-                    android:background="@color/darkGrey"
-                    android:layout_height="1dp"/>
+                    android:background="@color/darkGrey" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:drawableStart="@drawable/ic_address"
-                    android:drawablePadding="@dimen/smallGap"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address" />
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:drawablePadding="@dimen/smallGap"
+                    android:drawableStart="@drawable/ic_address"
+                    android:text="@string/address"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigGap"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:textSize="@dimen/text_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/street" />
+                        android:text="@string/street"
+                        android:textSize="@dimen/text_body" />
+
                     <TextView
                         android:id="@+id/tvStreet"
-                        android:textSize="@dimen/text_body"
-                        android:layout_marginStart="@dimen/smallGap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
                         tools:text="@string/street" />
                 </LinearLayout>
 
@@ -117,104 +119,119 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigGap"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:textSize="@dimen/text_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Suite:" />
+                        android:text="@string/suite"
+                        android:textSize="@dimen/text_body" />
+
                     <TextView
                         android:id="@+id/tvSuite"
-                        android:textSize="@dimen/text_body"
-                        android:layout_marginStart="@dimen/smallGap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
                         tools:text="suite" />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/bigGap"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textSize="@dimen/text_body"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/city" />
-                    <TextView
-                        android:id="@+id/tvCity"
-                        android:textSize="@dimen/text_body"
-                        android:layout_marginStart="@dimen/smallGap"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="city" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/bigGap"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textSize="@dimen/text_body"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Zipcode:" />
-                    <TextView
-                        android:id="@+id/tvZipcode"
-                        android:textSize="@dimen/text_body"
-                        android:layout_marginStart="@dimen/smallGap"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="zipcode" />
-                </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:background="@color/darkGrey"
-                    android:layout_height="1dp"/>
-                <TextView
-                    android:layout_marginTop="@dimen/smallGap"
-                    android:drawableStart="@drawable/ic_company"
-                    android:drawablePadding="@dimen/smallGap"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/company" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigGap"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:textSize="@dimen/text_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/name" />
+                        android:text="@string/city"
+                        android:textSize="@dimen/text_body" />
+
                     <TextView
-                        android:id="@+id/tvNameCompany"
-                        android:textSize="@dimen/text_body"
+                        android:id="@+id/tvCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/smallGap"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="zipcode" />
+                        android:textSize="@dimen/text_body"
+                        tools:text="city" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/bigGap"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:textSize="@dimen/text_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/catch_phrase" />
+                        android:text="@string/zipcode"
+                        android:textSize="@dimen/text_body" />
+
+                    <TextView
+                        android:id="@+id/tvZipcode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
+                        tools:text="zipcode" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:background="@color/darkGrey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smallGap"
+                    android:drawablePadding="@dimen/smallGap"
+                    android:drawableStart="@drawable/ic_company"
+                    android:text="@string/company"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigGap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:textSize="@dimen/text_body" />
+
+                    <TextView
+                        android:id="@+id/tvNameCompany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
+                        tools:text="zipcode" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/bigGap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/catch_phrase"
+                        android:textSize="@dimen/text_body" />
+
                     <TextView
                         android:id="@+id/tvCatchPhrase"
-                        android:textSize="@dimen/text_body"
-                        android:layout_marginStart="@dimen/smallGap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
                         tools:text="zipcode" />
                 </LinearLayout>
             </LinearLayout>

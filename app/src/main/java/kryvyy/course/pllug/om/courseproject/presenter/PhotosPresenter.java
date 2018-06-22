@@ -4,14 +4,10 @@ import java.util.List;
 
 import kryvyy.course.pllug.om.courseproject.adapter.PhotosAdapter;
 import kryvyy.course.pllug.om.courseproject.model_response.Photo;
-import kryvyy.course.pllug.om.courseproject.repositories.PhotosRepository;
 import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
+import kryvyy.course.pllug.om.courseproject.repositories.PhotosRepository;
 import kryvyy.course.pllug.om.courseproject.view.InterfaceView;
 import kryvyy.course.pllug.om.courseproject.view.PhotosView;
-
-/**
- * Created by vovak on 03.06.2018.
- */
 
 public class PhotosPresenter implements InterfaceRepository.Images, InterfaceView.Photos {
     private PhotosRepository mPhotosRepository;
@@ -24,11 +20,11 @@ public class PhotosPresenter implements InterfaceRepository.Images, InterfaceVie
         mPhotosView = new PhotosView(this);
     }
 
-    public void getPhotosByAlbum(Integer idAlbum){
+    public void getPhotosByAlbum(Integer idAlbum) {
         mPhotosRepository.getImageFromAlbum(idAlbum);
     }
 
-    public void getPhotosByUser(Integer idUser){
+    public void getPhotosByUser(Integer idUser) {
         mPhotosRepository.getImageFromUserAlbum(idUser);
     }
 

@@ -3,6 +3,7 @@ package kryvyy.course.pllug.om.courseproject.sign_in.fragment_sign_in;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,10 +17,6 @@ import android.widget.Toast;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactSignIn;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactSignUp;
-
-/**
- * Created by vovak on 26.05.2018.
- */
 
 public class SignUpFragment extends Fragment implements View.OnClickListener,ContactSignUp.ContactSignUpView{
     private ContactSignIn.ContactSignInFragment mContactSignInFragment;
@@ -39,7 +36,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener,Con
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view  = inflater.inflate(R.layout.fragment_sign_up,container,false);
         initView(view);
         initListener();
@@ -71,12 +68,6 @@ public class SignUpFragment extends Fragment implements View.OnClickListener,Con
     public void openSignInFragment() {
         mContactSignInFragment.openSignInFragment();
     }
-
-    @Override
-    public void openForgotPassword() {
-        mContactSignInFragment.openForgotPasswordFragment();
-    }
-
 
     @Override
     public void onClick(View view) {

@@ -9,10 +9,6 @@ import kryvyy.course.pllug.om.courseproject.repositories.InterfaceRepository;
 import kryvyy.course.pllug.om.courseproject.view.CommentsView;
 import kryvyy.course.pllug.om.courseproject.view.InterfaceView;
 
-/**
- * Created by vovak on 03.06.2018.
- */
-
 public class CommentsRresenter implements InterfaceRepository.Comments, InterfaceView.Comments {
     private CommentsRepository mCommentsRepository;
     private CommentsView mCommentsView;
@@ -24,11 +20,11 @@ public class CommentsRresenter implements InterfaceRepository.Comments, Interfac
         mCommentsView = new CommentsView(this);
     }
 
-    public void getCommentsByPost(Integer idPost){
+    public void getCommentsByPost(Integer idPost) {
         mCommentsRepository.getCommentsByIdPost(idPost);
     }
 
-    public void getCommentsByUser(Integer idUser){
+    public void getCommentsByUser(Integer idUser) {
         mCommentsRepository.getCommentsByUser(idUser);
     }
 

@@ -2,7 +2,6 @@ package kryvyy.course.pllug.om.courseproject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,25 +10,21 @@ import android.view.View;
 import kryvyy.course.pllug.om.courseproject.databinding.SplashscreenBinding;
 import kryvyy.course.pllug.om.courseproject.shared_preferences.PreferencesSignIn;
 
-/**
- * Created by vovak on 21.06.2018.
- */
-
 public class SplashActivity extends Activity {
-    private final int SPLASH_DISPLAY_TIME = 1000;
+    private static final int SPLASH_DISPLAY_TIME = 1000;
     private SplashscreenBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.splashscreen);
+        binding = DataBindingUtil.setContentView(this, R.layout.splashscreen);
         checkSession();
     }
 
     private void checkSession() {
-        if (PreferencesSignIn.getInstance(this).getActiveSession()){
+        if (PreferencesSignIn.getInstance(this).getActiveSession()) {
             openMainScreen();
-        }else {
+        } else {
             Intent intent = new Intent(this, AuthorizationActivity.class);
             SplashActivity.this.startActivity(intent);
             SplashActivity.this.finish();

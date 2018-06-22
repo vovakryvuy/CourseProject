@@ -7,11 +7,7 @@ import android.util.Patterns;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.sign_in.interface_sign_in.ContactForgotPassword;
 
-/**
- * Created by vovak on 27.05.2018.
- */
-
-public class ForgotPasswordPresenter implements ContactForgotPassword.ContactForgotPresenter{
+public class ForgotPasswordPresenter implements ContactForgotPassword.ContactForgotPresenter {
     private ContactForgotPassword.ContactForgotView mContactForgotView;
     private Context mContext;
 
@@ -22,15 +18,15 @@ public class ForgotPasswordPresenter implements ContactForgotPassword.ContactFor
 
     @Override
     public void vereficationEmail(String email) {
-        if (!TextUtils.isEmpty(email)){
+        if (!TextUtils.isEmpty(email)) {
             if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 mContactForgotView.showErrorMassage(mContext
-                        .getString(R.string.toastSendPasswordEmail)+" "+email);
+                        .getString(R.string.toastSendPasswordEmail) + " " + email);
                 mContactForgotView.openSignInFragment();
-            } else{
+            } else {
                 mContactForgotView.showErrorMassage(mContext.getString(R.string.toastInvalidEmailAddress));
             }
-        }else {
+        } else {
             mContactForgotView.showErrorMassage(mContext.getString(R.string.toastMassageErEmail));
         }
     }

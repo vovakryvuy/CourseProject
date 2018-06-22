@@ -6,23 +6,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
-import com.squareup.okhttp.internal.framed.FramedConnection;
-
-import kryvyy.course.pllug.om.courseproject.ContactFragment;
 import kryvyy.course.pllug.om.courseproject.R;
 import kryvyy.course.pllug.om.courseproject.databinding.FragmentLayoutBinding;
 import kryvyy.course.pllug.om.courseproject.model_response.Album;
 import kryvyy.course.pllug.om.courseproject.presenter.AlbumPresenter;
 import kryvyy.course.pllug.om.courseproject.presenter.InterfacePresenter;
-
 
 public class AlbumFragment extends Fragment implements InterfacePresenter.Albums {
     private AlbumPresenter mAlbumPresenter;

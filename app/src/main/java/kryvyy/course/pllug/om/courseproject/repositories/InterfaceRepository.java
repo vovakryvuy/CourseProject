@@ -9,35 +9,41 @@ import kryvyy.course.pllug.om.courseproject.model_response.Post;
 import kryvyy.course.pllug.om.courseproject.model_response.Todo;
 import kryvyy.course.pllug.om.courseproject.model_response.profile.Profile;
 
-
-/**
- * Created by vovak on 03.06.2018.
- */
-
 public interface InterfaceRepository {
 
-    interface Posts{
-      void getPost(Post post);
-      void getPosts(List<Post> posts);
+    interface Posts {
+        void getPost(Post post);
+
+        void getPosts(List<Post> posts);
     }
-    interface Comments{
+
+    interface Comments {
         void getComment(Comment comment);
+
         void getComments(List<Comment> comments);
     }
-    interface Images{
+
+    interface Images {
         void getImage(Photo photo);
+
         void getImages(List<Photo> photos);
     }
-    interface Albums{
+
+    interface Albums {
         void getAlbum(Album album);
+
         void getAlbums(List<Album> albums);
     }
-    interface Profiles{
+
+    interface Profiles {
         void getProfile(Profile profile);
+
         void getProfiles(List<Profile> profiles);
     }
-    interface Todos{
+
+    interface Todos {
         void getTodo(Todo todo);
+
         void getTodos(List<Todo> todos);
     }
 }
