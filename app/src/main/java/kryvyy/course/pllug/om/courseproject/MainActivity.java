@@ -154,8 +154,9 @@ public class MainActivity extends AppCompatActivity implements ContactFragment {
     private void logOut() {
         PreferencesSignIn.getInstance(this).setActiveSession(false);
         Intent intent = new Intent(this, AuthorizationActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 
     @Override
