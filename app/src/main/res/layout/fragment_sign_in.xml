@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context="kryvyy.course.pllug.om.courseproject.AuthorizationActivity">
+    tools:context="kryvyy.course.pllug.om.courseproject.ui.authorization.AuthorizationActivity">
 
     <EditText
         android:id="@+id/edLogin"

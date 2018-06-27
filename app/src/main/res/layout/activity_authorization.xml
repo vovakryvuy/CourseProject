@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kryvyy.course.pllug.om.courseproject.AuthorizationActivity">
+    tools:context="kryvyy.course.pllug.om.courseproject.ui.authorization.AuthorizationActivity">
 
     <FrameLayout
         android:id="@+id/fargmentContainerAuthorization"
