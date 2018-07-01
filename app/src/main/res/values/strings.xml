@@ -5,16 +5,17 @@
 
 
     <string name="toastMassage">Please enter %1$s</string>
+    <string name="toastMassageRegistationFail">Please enter</string>
     <string name="toastMassageErCredential">Please enter</string>
     <string name="toastMassageErEmail">Please enter email</string>
-    <string name="toastInvalidEmailAddress">Invalid email address</string>
+    <string name="toastInvalidEmailAddress">Incorrect email address</string>
     <string name="and">and</string>
     <string name="or">or</string>
     <string name="forgot_password">Forgot password</string>
     <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
     <string name="sign_in">Sign in</string>
-    <string name="toastSendPasswordEmail">Send new password in</string>
+    <string name="toastViewPassword">Your password:</string>
     <string name="toastEmailRegister">This email has been registered</string>
     <string name="toastSuccessfullRegister">You have successfully registered</string>
     <string name="notCorrect">Not correct</string>
@@ -39,4 +40,5 @@
     <string name="zipcode">Zipcode:</string>
     <string name="suite">Suite:</string>
     <string name="address">Address</string>
+    <string name="this_email_is_not_register">This email has not been registered</string>
 </resources>

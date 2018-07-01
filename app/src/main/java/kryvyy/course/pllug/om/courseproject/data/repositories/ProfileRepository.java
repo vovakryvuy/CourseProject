@@ -10,10 +10,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by vovak on 02.06.2018.
- */
-
 public class ProfileRepository {
     private InterfaceResponse mInterfaceResponse = ServiceRetrofit.getInterfaceResponse();
     private InterfaceRepository.Profiles mInterfaceProfilesRepository;

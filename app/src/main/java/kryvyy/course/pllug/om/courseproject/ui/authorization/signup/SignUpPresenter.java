@@ -22,7 +22,7 @@ public class SignUpPresenter implements InterfaceSignUp.ContactSignUpPresenter {
     public void vereficationSignUpData(String login, String email, String password) {
         StringBuilder stringBuilder = new StringBuilder();
         if (TextUtils.isEmpty(login) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            stringBuilder.append(mContext.getResources().getString(R.string.toastMassage)).append(" ");
+            stringBuilder.append(mContext.getResources().getString(R.string.toastMassageRegistationFail)).append(" ");
             if (TextUtils.isEmpty(login))
                 stringBuilder.append(mContext.getResources().getString(R.string.login)).append(" ");
             if (TextUtils.isEmpty(email))
