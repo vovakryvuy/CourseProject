@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_post"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smallGap"
+            android:layout_marginRight="@dimen/smallGap"
+            android:layout_marginTop="@dimen/smallGap"
+            app:cardBackgroundColor="@color/background_card_post"
+            app:cardCornerRadius="@dimen/smallGap">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/smallGap"
+                android:layout_marginRight="@dimen/smallGap"
+                android:layout_marginTop="@dimen/smallGap"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNameUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/smallGap"
+                    android:textSize="@dimen/header_text_big"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Volodymyr Kryvyy" />
+
+                <TextView
+                    android:id="@+id/tvTitlePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/smallGap"
+                    android:textSize="@dimen/header_text_small"
+                    tools:text="header tiitle " />
+
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvBodyPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="300dp"
+                        android:padding="@dimen/smallGap"
+                        android:textSize="@dimen/text_body"
+                        tools:text="header tiitle gfdsgdsgdsdgdsgdsgggsgd
+        fg dgdsds sdsdsgdsgdsgdgdgg  gd  gf  gf   f
+        fdggdfhshvtht ht t vtvft thvvvhtvdhddfhukjfsfkfkjshffhshdsh
+        sdhfkjskhsdhfshfhshfskdfkhsdhf " />
+                </ScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/bigGap"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/second_gradient_background"
+            android:indeterminateTintMode="src_atop" />
+
+        <LinearLayout
+            android:id="@+id/layoutComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smallGap"
+            android:layout_marginRight="@dimen/smallGap"
+            android:minHeight="100dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/middleGap"
+                android:layout_marginRight="@dimen/middleGap"
+                android:background="@drawable/background_comment_post"
+                android:paddingTop="@dimen/smallGap"
+                android:text="@string/comments"
+                android:textSize="@dimen/header_text_small" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/smallGap"
+                android:layout_marginRight="@dimen/smallGap">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,68 @@
+package kryvyy.course.pllug.om.courseproject.data.service_retrofit;
+
+import java.util.List;
+
+import kryvyy.course.pllug.om.courseproject.data.model_response.Album;
+import kryvyy.course.pllug.om.courseproject.data.model_response.Comment;
+import kryvyy.course.pllug.om.courseproject.data.model_response.Photo;
+import kryvyy.course.pllug.om.courseproject.data.model_response.Post;
+import kryvyy.course.pllug.om.courseproject.data.model_response.Todo;
+import kryvyy.course.pllug.om.courseproject.data.model_response.profile.Profile;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
+public interface InterfaceResponse {
+    /**
+    Get data by id
+     */
+    @GET("/users/{id}")
+    Call<Profile> getProfile (@Path("id") Integer id);
+
+    @GET("/posts/{id}")
+    Call<Post> getPost (@Path("id") Integer id);
+
+    @GET("/comments/{id}")
+    Call<Comment> getComment (@Path("id") Integer id);
+
+    @GET("/albums/{id}")
+    Call<Album> getAlbum (@Path("id") Integer id);
+
+    @GET("/photos/{id}")
+    Call<Photo> getImage (@Path("id") Integer id);
+
+    @GET("/todos/{id}")
+    Call<Todo> getTodo (@Path("id") Integer id);
+
+    @GET("/todos")
+    Call<List<Todo>> getTodosByUser (@Query("userId") Integer userId);
+
+    /**
+     Get all data
+     */
+    @GET("/albums")
+    Call<List<Album>> getAlbums ();
+
+    @GET("/users")
+    Call<List<Profile>> getProfiles();
+
+    @GET("/posts")
+    Call<List<Post>> getPosts();
+
+    @GET("/comments")
+    Call<List<Comment>> getComments ();
+
+    @GET("/comments")
+    Call<List<Comment>> getCommentsByPostId (@Query("postId") Integer postId);
+
+    @GET("/comments")
+    Call<List<Comment>> getCommentsByUserId (@Query("userId") Integer postId);
+
+    @GET("/photos")
+    Call<List<Photo>> getImageFromAlbum(@Query("albumId") Integer albumId);
+
+    @GET("/photos")
+    Call<List<Photo>> getImageFromAlbumUser(@Query("userId") Integer userId);
+
+}

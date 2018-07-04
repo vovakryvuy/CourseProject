@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="width_edit_text">200dp</dimen>
+    <dimen name="width_edit_text">250dp</dimen>
+
+    <dimen name="header_text_big">24sp</dimen>
+    <dimen name="header_text_small">20sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+
+    <dimen name="smallGap">8dp</dimen>
+    <dimen name="middleGap">16dp</dimen>
+    <dimen name="bigGap">30dp</dimen>
+    <dimen name="size_user_photo">150dp</dimen>
+    <dimen name="width_navigation_view">250dp</dimen>
+    <dimen name="height_photo">300dp</dimen>
 </resources>
